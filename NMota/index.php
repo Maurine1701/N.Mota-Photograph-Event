@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head></head>
+<?php get_header(); ?>
+
 <body>
-	<h1>Nathalie Mota Photograph Event</h1>
+    <main>
+    </main>
+
+<?php get_footer(); ?>
+
 </body>
 </html>

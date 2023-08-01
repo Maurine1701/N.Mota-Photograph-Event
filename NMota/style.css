@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: NMota
 Theme URI: https://NMota.io
@@ -5,3 +6,69 @@ Author: Pic Maurine
 Description: Thème personnalisé pour le site de Nathalie Mota Photograph Event
 Version: 1.0
 */
+/* général*/
+body {
+  font-family: "space-mono-regular", sans-serif;
+}
+
+main {
+  height: 850px;
+  background-color: gray;
+}
+
+/* déclaration police google font en local*/
+@font-face {
+  font-family: "space-mono-regular";
+  src: url("fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+/* mise en forme du header */
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo {
+  margin-left: 216px;
+}
+.header ul {
+  list-style: none;
+  display: flex;
+  margin-right: 216px;
+}
+.header ul li {
+  font-weight: 400;
+  margin-right: 50px;
+}
+.header ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer {
+  height: 40px;
+  border-top: solid black 1px;
+}
+.footer .menu-footer {
+  display: flex;
+  justify-content: center;
+}
+.footer .menu-footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.footer .menu-footer li {
+  font-weight: 400;
+  margin-right: 100px;
+}
+.footer .menu-footer li a {
+  text-decoration: none;
+  color: black;
+}/*# sourceMappingURL=style.css.map */
