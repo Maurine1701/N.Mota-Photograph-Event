@@ -9,6 +9,9 @@ Version: 1.0
 /* général*/
 body {
   font-family: "space-mono-regular", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 main {
@@ -40,7 +43,7 @@ main {
 .header ul {
   list-style: none;
   display: flex;
-  margin-right: 216px;
+  margin-left: 955px;
 }
 .header ul li {
   font-weight: 400;
@@ -51,6 +54,106 @@ main {
   color: black;
 }
 
+/*Responsive pour les tablettes*/
+@media (max-width: 1024px) {
+  .logo {
+    margin-left: 0px !important;
+  }
+  .logo img {
+    margin-left: 185px;
+  }
+  .burgerBtn {
+    cursor: pointer;
+  }
+  .burgerBtn span {
+    width: 35px;
+    height: 2px;
+    background-color: #000;
+    display: block;
+    position: absolute;
+    left: 540px;
+    transform: translateY(-50%);
+    transition: background-color 0.5s ease-in-out;
+  }
+  .burgerBtn span::before, .burgerBtn span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: transform 0.5s ease-in-out;
+  }
+  .burgerBtn span::before {
+    transform: translateY(-10px);
+  }
+  .burgerBtn span::after {
+    transform: translateY(10px);
+  }
+  .burgerBtn.active span {
+    background-color: transparent !important;
+  }
+  .burgerBtn.active span::before {
+    transform: translateY(0px) rotateZ(45deg);
+  }
+  .burgerBtn.active span::after {
+    transform: translateY(0px) rotateZ(-45deg);
+  }
+  nav.navigation {
+    position: sticky;
+    top: 111px;
+    background-color: white;
+    color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in;
+  }
+  nav.navigation.open {
+    opacity: 1;
+    visibility: visible;
+    animation: menuFadein 1s ease-in-out;
+    width: 100%;
+    margin-top: 265px;
+    margin-left: -401px;
+  }
+  @keyframes menuFadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  nav.navigation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 50px;
+    width: 100%;
+    font-size: 20px;
+    margin-left: 0px;
+  }
+}
+/*Responsive pour les mobiles*/
+@media (max-width: 600px) {
+  .logo img {
+    width: 138px;
+    height: 9px;
+    margin-left: 40px !important;
+  }
+  span {
+    left: 300px !important;
+  }
+  nav.navigation {
+    top: 125px !important;
+  }
+  nav.navigation.open {
+    margin-top: 257px !important;
+    margin-right: -220px !important;
+  }
+  nav.navigation ul {
+    font-size: 16px !important;
+  }
+}
 .footer {
   height: 40px;
   border-top: solid black 1px;
@@ -71,4 +174,193 @@ main {
 .footer .menu-footer li a {
   text-decoration: none;
   color: black;
+}
+
+/*Responsive pour les tablettes*/
+/*Responsive pour les tablettes & mobiles*/
+@media (max-width: 1024px) {
+  .menu-footer {
+    width: 100%;
+    height: 208px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+  }
+  .menu-footer ul {
+    margin: 0;
+    padding: 0;
+  }
+  .menu-footer ul li {
+    margin-bottom: 20px;
+    margin-left: 95px;
+    font-size: 20px;
+  }
+  .menu-footer ul li a {
+    margin: auto;
+  }
+  .menu-footer p {
+    margin-top: -55px;
+    font-size: 20px;
+  }
+}
+/*Responsive spécifique pour les mobiles*/
+@media (max-width: 600px) {
+  li {
+    font-size: 16px !important;
+  }
+  p {
+    margin-top: -65px !important;
+    font-size: 16px !important;
+  }
+}
+/* Styles pour la modale */
+.modaleOverlay {
+  position: fixed;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modaleOverlay.open {
+  display: flex;
+}
+.modaleOverlay .modaleContact {
+  position: fixed;
+  width: 597px;
+  height: 780px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  border: solid black 7px;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.modaleOverlay .headerContact {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Styles pour le formulaire */
+.formulaireContact {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.formulaireContact label {
+  font-family: "poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.formulaireContact input {
+  height: 40px;
+  width: 263px;
+  border-radius: 8px;
+  border: solid #B8BBC2 1px;
+  margin-top: 0px;
+}
+.formulaireContact input[type=submit] {
+  height: 50px;
+  width: 270px;
+  border-radius: 2px;
+  background-color: #D8D8D8;
+  border: solid #D8D8D8 2px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+.formulaireContact input[type=submit]:hover {
+  background-color: #cacaca;
+}
+.formulaireContact textarea {
+  height: 142px;
+  width: 263px;
+  border-radius: 8px;
+  border: solid #B8BBC2 1px;
+}
+
+/* message validation et erreur formulaire */
+.wpcf7 form .wpcf7-response-output {
+  margin: -1em 0.5em 1em;
+  border: 2px solid red;
+  font-size: 12px;
+  font-family: "poppins";
+  margin-top: -20px;
+  text-align: center;
+}
+
+.wpcf7-not-valid-tip {
+  color: #dc3232;
+  font-size: 1em;
+  font-family: "poppins";
+  font-weight: normal;
+  display: block;
+  margin-bottom: -20px;
+}
+
+/*Responsive pour les mobiles*/
+@media (max-width: 600px) {
+  .modaleContact {
+    width: 286px !important;
+    height: 600px !important;
+  }
+  .modaleContact .headerContact {
+    margin-top: 10px;
+    width: 100%;
+    height: 10%;
+    margin-bottom: -50px;
+  }
+  .modaleContact .headerContact img {
+    margin-left: 0px !important;
+  }
+  .formulaireContact {
+    margin-top: 45px;
+  }
+  .formulaireContact label {
+    font-size: 12px;
+  }
+  .formulaireContact .wpcf7-form-control-wrap {
+    position: static;
+  }
+  .formulaireContact p {
+    margin-top: 5px !important;
+  }
+  .formulaireContact input {
+    height: 40px;
+    width: 190px;
+    margin-bottom: -5px;
+  }
+  .formulaireContact input[type=submit] {
+    height: 50px;
+    width: 190px;
+    margin-top: -30px;
+  }
+  .formulaireContact textarea {
+    height: 130px;
+    width: 190px;
+    margin-bottom: 20px;
+  }
+  /* message validation et erreur formulaire */
+  .wpcf7 form .wpcf7-response-output {
+    margin-top: -40px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .wpcf7-not-valid-tip {
+    margin-top: 5px;
+    margin-bottom: -25px;
+  }
 }/*# sourceMappingURL=style.css.map */

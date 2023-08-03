@@ -13,7 +13,7 @@
     ul {
         list-style: none;
         display: flex;
-        margin-right: 216px;
+        margin-left: 955px;
 
         li {
             font-weight: 400;
@@ -23,6 +23,138 @@
                 text-decoration: none;
                 color: black;
             }
+        }
+    }
+}
+
+/*Responsive pour les tablettes*/
+
+@media (max-width: 1024px) {
+
+    .logo {
+        margin-left: 0px !important;
+
+        img {
+            margin-left: 185px;
+        }
+    }
+
+    .burgerBtn {
+        cursor: pointer;
+
+        span {
+            width: 35px;
+            height: 2px;
+            background-color: #000;
+            display: block;
+            position: absolute;
+            left: 540px;
+            transform: translateY(-50%);
+            transition: background-color 0.5s ease-in-out;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #000;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            &::before {
+                transform: translateY(-10px);
+            }
+
+            &::after {
+                transform: translateY(10px);
+            }
+        }
+
+        &.active span {
+            background-color: transparent !important;
+
+            &::before {
+                transform: translateY(0px) rotateZ(45deg);
+            }
+
+            &::after {
+                transform: translateY(0px) rotateZ(-45deg);
+            }
+        }
+    }
+
+    nav.navigation {
+        position: sticky;
+        top: 111px;
+        background-color: white;
+        color: black;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease-in;
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            animation: menuFadein 1s ease-in-out;
+            width: 100%;
+            margin-top: 265px;
+            margin-left: -401px;
+
+            @keyframes menuFadein {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 50px;
+            width: 100%;
+            font-size: 20px;
+            margin-left: 0px;
+
+        }
+    }
+}
+
+
+
+
+/*Responsive pour les mobiles*/
+
+@media (max-width: 600px) {
+
+    .logo {
+        img {
+            width: 138px;
+            height: 9px;
+            margin-left: 40px !important;
+        }
+    }
+
+    span {
+        left: 300px !important;
+    }
+
+    nav.navigation {
+        top: 125px !important;
+
+        &.open {
+            margin-top: 257px !important;
+            margin-right: -220px !important;
+        }
+
+        ul {
+            font-size: 16px !important;
+
         }
     }
 }

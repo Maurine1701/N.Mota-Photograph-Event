@@ -22,4 +22,7 @@
         ));
         ?>
     </nav>
+    <div class="burgerBtn">
+            <span></span>
+    </div>
 </header>

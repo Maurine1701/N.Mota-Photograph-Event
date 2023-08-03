@@ -12,6 +12,7 @@
     </div>
 </footer>
 
+<?php get_template_part('template-parts/modaleContact'); ?>
 <?php wp_footer(); ?>
 
 </body>
