@@ -14,11 +14,10 @@ body {
   width: 100%;
 }
 
-main {
-  height: 850px;
-  background-color: gray;
-}
-
+/*main {
+    height: 850px;
+    background-color: gray;
+}*/
 /* déclaration police google font en local*/
 @font-face {
   font-family: "space-mono-regular";
@@ -278,7 +277,7 @@ main {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-top: -20px;
+  margin-top: -10px;
   margin-bottom: 0px;
   font-size: 14px;
 }
@@ -298,7 +297,7 @@ main {
   border: 2px solid red;
   font-size: 12px;
   font-family: "poppins";
-  margin-top: -20px;
+  margin-top: -25px;
   text-align: center;
 }
 
@@ -315,7 +314,7 @@ main {
 @media (max-width: 600px) {
   .modaleContact {
     width: 286px !important;
-    height: 600px !important;
+    height: 610px !important;
   }
   .modaleContact .headerContact {
     margin-top: 10px;
@@ -346,21 +345,25 @@ main {
   .formulaireContact input[type=submit] {
     height: 50px;
     width: 190px;
-    margin-top: -30px;
+    margin-top: -29px;
   }
   .formulaireContact textarea {
     height: 130px;
     width: 190px;
     margin-bottom: 20px;
   }
+  .formulaireContact textarea.wpcf7-not-valid + .wpcf7-not-valid-tip {
+    margin-top: -26px;
+    margin-bottom: 8px;
+  }
   /* message validation et erreur formulaire */
   .wpcf7 form .wpcf7-response-output {
-    margin-top: -40px;
+    margin-top: -42px;
     font-size: 10px;
     line-height: 12px;
   }
   .wpcf7-not-valid-tip {
     margin-top: 5px;
-    margin-bottom: -25px;
+    margin-bottom: -23px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -37,7 +37,6 @@ get_header();
 </div><!-- #primary -->
 
 <?php
-// Inclut la barre latérale du thème en appelant get_sidebar(). et inclut le pied de page du thème en appelant get_footer().
-get_sidebar();
+// Inclut le pied de page du thème en appelant get_footer().
 get_footer();
 
