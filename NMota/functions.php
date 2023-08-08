@@ -23,4 +23,21 @@ function JS_script() {
 }
 
 add_action( 'wp_enqueue_scripts', 'JS_script' );
+
+
+function create_photo_post_type() {
+    register_post_type('photo', array(
+        'labels' => array(
+            'name' => 'Photos',
+            'singular_name' => 'Photo',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'photo'), // Assurez-vous que le slug est correct ici
+        // Autres paramètres...
+    ));
+}
+add_action('init', 'create_photo_post_type');
+
 ?>
+

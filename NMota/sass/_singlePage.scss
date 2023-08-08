@@ -1,0 +1,35 @@
+.containerSingle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 216px;
+    margin-right: 216px;
+
+    img {
+        height: 844px;
+        width: 45%;
+        object-fit: cover;
+        margin-left: auto;
+    }
+
+    .detailsPhoto {
+        width: 50%;
+
+
+        h2 {
+            font-family: 'space-mono-regular', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 66px;
+            line-height: 58px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 14px;
+            text-transform: uppercase;
+
+        }
+
+    }
+}

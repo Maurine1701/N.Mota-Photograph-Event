@@ -13,7 +13,7 @@
     ul {
         list-style: none;
         display: flex;
-        margin-left: 955px;
+        margin-left: 735px;
 
         li {
             font-weight: 400;
@@ -23,6 +23,10 @@
                 text-decoration: none;
                 color: black;
             }
+        }
+
+        li:hover {
+            font-weight: 700;
         }
     }
 }

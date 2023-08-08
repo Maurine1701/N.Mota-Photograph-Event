@@ -14,10 +14,6 @@ body {
   width: 100%;
 }
 
-/*main {
-    height: 850px;
-    background-color: gray;
-}*/
 /* déclaration police google font en local*/
 @font-face {
   font-family: "space-mono-regular";
@@ -42,7 +38,7 @@ body {
 .header ul {
   list-style: none;
   display: flex;
-  margin-left: 955px;
+  margin-left: 735px;
 }
 .header ul li {
   font-weight: 400;
@@ -51,6 +47,9 @@ body {
 .header ul li a {
   text-decoration: none;
   color: black;
+}
+.header ul li:hover {
+  font-weight: 700;
 }
 
 /*Responsive pour les tablettes*/
@@ -173,6 +172,9 @@ body {
 .footer .menu-footer li a {
   text-decoration: none;
   color: black;
+}
+.footer .menu-footer li:hover {
+  font-weight: 700;
 }
 
 /*Responsive pour les tablettes*/
@@ -314,7 +316,7 @@ body {
 @media (max-width: 600px) {
   .modaleContact {
     width: 286px !important;
-    height: 610px !important;
+    height: 60px !important;
   }
   .modaleContact .headerContact {
     margin-top: 10px;
@@ -366,4 +368,33 @@ body {
     margin-top: 5px;
     margin-bottom: -23px;
   }
+}
+.containerSingle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 216px;
+  margin-right: 216px;
+}
+.containerSingle img {
+  height: 844px;
+  width: 45%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: auto;
+}
+.containerSingle .detailsPhoto {
+  width: 50%;
+}
+.containerSingle .detailsPhoto h2 {
+  font-family: "space-mono-regular", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 66px;
+  line-height: 58px;
+  text-transform: uppercase;
+}
+.containerSingle .detailsPhoto p {
+  font-size: 14px;
+  text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */
