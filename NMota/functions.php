@@ -18,6 +18,12 @@ function NMota_menus() {
 add_action( 'init', 'NMota_menus' );
 
 
+function mytheme_post_thumbnails() {
+    add_theme_support( 'post-thumbnails' );
+}
+add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
+
+
 function JS_script() {
     wp_enqueue_script( 'scriptJs', get_template_directory_uri() . ' /js/index.js', array ('jquery'), '1.0', true );
 }
@@ -27,14 +33,17 @@ add_action( 'wp_enqueue_scripts', 'JS_script' );
 
 function create_photo_post_type() {
     register_post_type('photo', array(
-        'labels' => array(
-            'name' => 'Photos',
-            'singular_name' => 'Photo',
-        ),
         'public' => true,
+        'menu_icon' => 'dashicons-camera',
         'has_archive' => true,
-        'rewrite' => array('slug' => 'photo'), // Assurez-vous que le slug est correct ici
-        // Autres paramètres...
+        'rewrite' => array('slug' => 'photo'),
+
+        'labels' => array(
+        'name' => 'Photos',
+        'singular_name' => 'Photo',
+        'add_new_item' => 'ajouter une photo',
+        'edit_item' => 'modifier une photo',
+        ),
     ));
 }
 add_action('init', 'create_photo_post_type');

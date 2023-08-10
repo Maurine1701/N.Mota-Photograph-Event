@@ -1,19 +1,24 @@
+/* Détails des photos */
+
 .containerSingle {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-left: 216px;
     margin-right: 216px;
+    margin-top: 50px;
 
     img {
-        height: 844px;
         width: 45%;
+        height: 100%;
         object-fit: cover;
         margin-left: auto;
     }
 
     .detailsPhoto {
         width: 50%;
+        border-bottom: solid black 1px;
+        padding-bottom: 40px;
 
 
         h2 {
@@ -23,6 +28,7 @@
             font-size: 66px;
             line-height: 58px;
             text-transform: uppercase;
+            width: 420px;
         }
 
         p {
@@ -31,5 +37,122 @@
 
         }
 
+    }
+}
+
+
+
+/* Partie navigation et contact */
+
+.contactBtn {
+    border-bottom: solid black 1px;
+    margin-left: 216px;
+    margin-right: 216px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+
+    .containerContact {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+
+
+        p {
+            margin-right: 100px;
+        }
+
+        button {
+            width: 272px;
+            height: 50px;
+            border: none;
+            background-color: #d8d8d8;
+        }
+
+        button:hover {
+            background-color: #c9c9c9;
+        }
+
+    }
+
+    .navigationArrows {
+        margin-left: auto;
+
+
+        .containerImgArrows {
+            width: 81px;
+            height: 71px;
+            background-color: #d8d8d8;
+            overflow: hidden;
+            margin-top: 10px;
+
+            .img-arrows {
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+
+
+            }
+        }
+
+        .arrowsContainer {
+
+            display: flex;
+            justify-content: space-between;
+
+        }
+    }
+}
+
+
+
+
+/* Partie photos apparentées */
+
+.containerPrincipalImg {
+    display: flex;
+    flex-direction: column;
+
+    .imgAppTitle {
+        margin: -20px 216px 60px;
+
+    }
+
+    .containerImgApp {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 216px;
+        margin-right: 216px;
+
+        .imgAppOnly {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 725px;
+            height: 655px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            object-fit: cover;
+        }
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .buttonAllPhoto {
+        width: 272px;
+        height: 50px;
+        border: none;
+        background-color: #d8d8d8;
+        margin: 0 auto;
+        margin-bottom: 50px;
+
+    }
+
+    .buttonAllPhoto:hover {
+        background-color: #c9c9c9;
     }
 }
