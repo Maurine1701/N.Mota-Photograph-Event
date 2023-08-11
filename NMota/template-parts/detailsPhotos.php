@@ -15,14 +15,17 @@
 
 ?>
 
+<div class="containerPrincipalSingle">
 <div class="containerSingle">
     <div class="detailsPhoto">
         <h2><?php echo get_the_title(); ?></h2>
-        <p><?php echo 'RÉFÉRENCE: ' . $reference . '<br>'; ?></p>
-        <p><?php echo 'CATÉGORIE: ' . $taxo_categorie[0]->name . '<br>'; ?></p>
-        <p><?php echo 'FORMAT: ' . $taxo_format[0]->name . '<br>'; ?></p>
-        <p><?php echo 'TYPE: ' . $type . '<br>'; ?></p>
-        <p><?php echo 'ANNÉE: ' . $taxo_annee[0]->name . '<br>'; ?></p>
+        <div class="infosPhoto">
+            <p><?php echo 'RÉFÉRENCE: ' . $reference . '<br>'; ?></p>
+            <p><?php echo 'CATÉGORIE: ' . $taxo_categorie[0]->name . '<br>'; ?></p>
+            <p><?php echo 'FORMAT: ' . $taxo_format[0]->name . '<br>'; ?></p>
+            <p><?php echo 'TYPE: ' . $type . '<br>'; ?></p>
+            <p><?php echo 'ANNÉE: ' . $taxo_annee[0]->name . '<br>'; ?></p>
+        </div>
     </div>
     <img src="<?php echo $photo_url; ?>" alt="<?php the_title_attribute(); ?>"><br>
 </div>
@@ -48,7 +51,7 @@
 
     ?>
 
-<div class="navigationArrows">
+    <div class="navigationArrows">
     <?php if (!empty($previousPost) || !empty($nextPost)){ ?>
     <div class="containerImgArrows">
         <?php
@@ -124,4 +127,5 @@
         ?>
     </div>
     <button type="button" class="buttonAllPhoto">Toutes les photos</button>
+</div>
 </div>

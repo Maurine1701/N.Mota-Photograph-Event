@@ -140,7 +140,7 @@ body {
     margin-left: 40px !important;
   }
   span {
-    left: 300px !important;
+    left: 320px !important;
   }
   nav.navigation {
     top: 125px !important;
@@ -318,7 +318,7 @@ body {
 @media (max-width: 600px) {
   .modaleContact {
     width: 286px !important;
-    height: 60px !important;
+    height: 595px !important;
   }
   .modaleContact .headerContact {
     margin-top: 10px;
@@ -371,28 +371,34 @@ body {
     margin-bottom: -23px;
   }
 }
-/* Détails des photos */
-.containerSingle {
+.containerPrincipalSingle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 216px;
+  margin-right: 216px;
+  /* Détails des photos */
+  /* Partie navigation et contact */
+  /* Partie photos apparentées */
+}
+.containerPrincipalSingle .containerSingle {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-left: 216px;
-  margin-right: 216px;
   margin-top: 50px;
 }
-.containerSingle img {
+.containerPrincipalSingle .containerSingle img {
   width: 45%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   margin-left: auto;
 }
-.containerSingle .detailsPhoto {
+.containerPrincipalSingle .containerSingle .detailsPhoto {
   width: 50%;
   border-bottom: solid black 1px;
   padding-bottom: 40px;
 }
-.containerSingle .detailsPhoto h2 {
+.containerPrincipalSingle .containerSingle .detailsPhoto h2 {
   font-family: "space-mono-regular", sans-serif;
   font-weight: 400;
   font-style: italic;
@@ -401,75 +407,69 @@ body {
   text-transform: uppercase;
   width: 420px;
 }
-.containerSingle .detailsPhoto p {
+.containerPrincipalSingle .containerSingle .detailsPhoto p {
   font-size: 14px;
   text-transform: uppercase;
 }
-
-/* Partie navigation et contact */
-.contactBtn {
+.containerPrincipalSingle .contactBtn {
   border-bottom: solid black 1px;
-  margin-left: 216px;
-  margin-right: 216px;
   margin-bottom: 100px;
   display: flex;
   align-items: center;
 }
-.contactBtn .containerContact {
+.containerPrincipalSingle .contactBtn .containerContact {
   display: flex;
   align-items: center;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.contactBtn .containerContact p {
+.containerPrincipalSingle .contactBtn .containerContact p {
   margin-right: 100px;
 }
-.contactBtn .containerContact button {
+.containerPrincipalSingle .contactBtn .containerContact button {
   width: 272px;
   height: 50px;
   border: none;
   background-color: #d8d8d8;
 }
-.contactBtn .containerContact button:hover {
+.containerPrincipalSingle .contactBtn .containerContact button:hover {
   background-color: #c9c9c9;
 }
-.contactBtn .navigationArrows {
+.containerPrincipalSingle .contactBtn .navigationArrows {
   margin-left: auto;
 }
-.contactBtn .navigationArrows .containerImgArrows {
+.containerPrincipalSingle .contactBtn .navigationArrows .containerImgArrows {
   width: 81px;
   height: 71px;
   background-color: #d8d8d8;
   overflow: hidden;
   margin-top: 10px;
 }
-.contactBtn .navigationArrows .containerImgArrows .img-arrows {
+.containerPrincipalSingle .contactBtn .navigationArrows .containerImgArrows .img-arrows {
   max-width: 100%;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.contactBtn .navigationArrows .arrowsContainer {
+.containerPrincipalSingle .contactBtn .navigationArrows .arrowsContainer {
   display: flex;
   justify-content: space-between;
 }
-
-/* Partie photos apparentées */
-.containerPrincipalImg {
+.containerPrincipalSingle .containerPrincipalImg {
   display: flex;
   flex-direction: column;
 }
-.containerPrincipalImg .imgAppTitle {
-  margin: -20px 216px 60px;
+.containerPrincipalSingle .containerPrincipalImg .imgAppTitle {
+  margin: -20px 0px 60px;
+  text-transform: uppercase;
 }
-.containerPrincipalImg .containerImgApp {
+.containerPrincipalSingle .containerPrincipalImg .containerImgApp {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 216px;
-  margin-right: 216px;
+  text-transform: uppercase;
 }
-.containerPrincipalImg .containerImgApp .imgAppOnly {
+.containerPrincipalSingle .containerPrincipalImg .containerImgApp .imgAppOnly {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -480,11 +480,11 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.containerPrincipalImg .containerImgApp img {
+.containerPrincipalSingle .containerPrincipalImg .containerImgApp img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.containerPrincipalImg .buttonAllPhoto {
+.containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto {
   width: 272px;
   height: 50px;
   border: none;
@@ -492,6 +492,97 @@ body {
   margin: 0 auto;
   margin-bottom: 50px;
 }
-.containerPrincipalImg .buttonAllPhoto:hover {
+.containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto:hover {
   background-color: #c9c9c9;
+}
+
+/*Responsive pour les tablettes*/
+@media (min-width: 601px) and (max-width: 1024px) {
+  .containerPrincipalSingle {
+    margin-left: 115px;
+    margin-right: 115px;
+  }
+  .containerPrincipalSingle .containerSingle .detailsPhoto h2 {
+    font-size: 50px;
+    width: 290px;
+  }
+  .containerPrincipalSingle .contactBtn .containerContact button {
+    width: 130px;
+    margin-left: -75px;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .imgAppTitle {
+    margin: -65px 0px 35px;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .containerImgApp {
+    flex-direction: column;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .containerImgApp .imgAppOnly {
+    width: 545px;
+    height: 380px;
+  }
+}
+/*Responsive pour les mobiles*/
+@media (max-width: 600px) {
+  .containerPrincipalSingle {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .containerPrincipalSingle .containerSingle img {
+    width: 70%;
+    margin-bottom: 305px;
+    margin-left: -253px;
+    margin-top: -25px;
+  }
+  .containerPrincipalSingle .containerSingle .detailsPhoto {
+    margin-left: 55px;
+    border-bottom: none;
+  }
+  .containerPrincipalSingle .containerSingle .detailsPhoto h2 {
+    font-size: 46px;
+    line-height: 48px;
+    width: 262px;
+    margin-top: -60px;
+  }
+  .containerPrincipalSingle .containerSingle .detailsPhoto .infosPhoto {
+    margin-top: 205px;
+  }
+  .containerPrincipalSingle .containerSingle .detailsPhoto .infosPhoto p {
+    margin-bottom: 10px;
+  }
+  .containerPrincipalSingle .contactBtn {
+    border-top: solid black 1px;
+    margin-top: 20px;
+  }
+  .containerPrincipalSingle .contactBtn .containerContact {
+    margin-top: 90px;
+    flex-direction: column;
+  }
+  .containerPrincipalSingle .contactBtn .containerContact button {
+    width: 270px;
+    margin-left: 55px;
+  }
+  .containerPrincipalSingle .contactBtn .containerContact p {
+    margin-right: -2px;
+    font-size: 13px !important;
+    word-spacing: -2px;
+  }
+  .containerPrincipalSingle .contactBtn .navigationArrows {
+    display: none;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .imgAppTitle {
+    margin-left: 100px;
+    margin-bottom: 30px;
+    word-spacing: 5px;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .containerImgApp {
+    flex-direction: column;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .containerImgApp .imgAppOnly {
+    width: 315px;
+    height: 280px;
+    margin-bottom: 25px;
+  }
+  .containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
