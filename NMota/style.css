@@ -585,4 +585,32 @@ body {
   .containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto {
     display: none;
   }
+}
+/* Hero Header */
+.containerHero {
+  width: 100%;
+  height: 962px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerHero .imgHero {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  z-index: -1;
+  position: relative;
+}
+.containerHero .titreHero {
+  z-index: 2;
+  position: absolute;
+  font-weight: 700;
+  font-family: "spaceMono-Bold", sans-serif;
+  font-style: italic;
+  font-size: 96px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px white;
+  -webkit-text-fill-color: transparent;
 }/*# sourceMappingURL=style.css.map */
