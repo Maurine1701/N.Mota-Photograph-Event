@@ -377,8 +377,6 @@ body {
   margin-left: 216px;
   margin-right: 216px;
   /* Détails des photos */
-  /* Partie navigation et contact */
-  /* Partie photos apparentées */
 }
 .containerPrincipalSingle .containerSingle {
   display: flex;
@@ -411,80 +409,75 @@ body {
   font-size: 14px;
   text-transform: uppercase;
 }
-.containerPrincipalSingle .contactBtn {
+
+/* Partie navigation et contact */
+.contactBtn {
   border-bottom: solid black 1px;
   margin-bottom: 100px;
   display: flex;
   align-items: center;
 }
-.containerPrincipalSingle .contactBtn .containerContact {
+.contactBtn .containerContact {
   display: flex;
   align-items: center;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.containerPrincipalSingle .contactBtn .containerContact p {
+.contactBtn .containerContact p {
   margin-right: 100px;
 }
-.containerPrincipalSingle .contactBtn .containerContact button {
+.contactBtn .containerContact button {
   width: 272px;
   height: 50px;
   border: none;
   background-color: #d8d8d8;
 }
-.containerPrincipalSingle .contactBtn .containerContact button:hover {
+.contactBtn .containerContact button:hover {
   background-color: #c9c9c9;
 }
-.containerPrincipalSingle .contactBtn .navigationArrows {
+.contactBtn .navigationArrows {
   margin-left: auto;
 }
-.containerPrincipalSingle .contactBtn .navigationArrows .containerImgArrows {
+.contactBtn .navigationArrows .containerImgArrows {
   width: 81px;
   height: 71px;
   background-color: #d8d8d8;
   overflow: hidden;
   margin-top: 10px;
 }
-.containerPrincipalSingle .contactBtn .navigationArrows .containerImgArrows .img-arrows {
+.contactBtn .navigationArrows .containerImgArrows .img-arrows {
   max-width: 100%;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.containerPrincipalSingle .contactBtn .navigationArrows .arrowsContainer {
+.contactBtn .navigationArrows .arrowsContainer {
   display: flex;
   justify-content: space-between;
 }
-.containerPrincipalSingle .containerPrincipalImg {
-  display: flex;
-  flex-direction: column;
-}
-.containerPrincipalSingle .containerPrincipalImg .imgAppTitle {
-  margin: -20px 0px 60px;
-  text-transform: uppercase;
-}
-.containerPrincipalSingle .containerPrincipalImg .containerImgApp {
+
+/* Partie photos apparentées */
+.containerPrincipalImg {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  text-transform: uppercase;
 }
-.containerPrincipalSingle .containerPrincipalImg .containerImgApp .imgAppOnly {
+.containerPrincipalImg .containerImg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 725px;
+  width: 720px;
   height: 655px;
   overflow: hidden;
   margin-bottom: 50px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  position: relative;
 }
-.containerPrincipalSingle .containerPrincipalImg .containerImgApp img {
-  -o-object-fit: cover;
-     object-fit: cover;
+
+.imgAppTitle {
+  margin: -20px 0px 60px;
+  text-transform: uppercase;
 }
-.containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto {
+
+.buttonAllPhoto {
   width: 272px;
   height: 50px;
   border: none;
@@ -492,8 +485,12 @@ body {
   margin: 0 auto;
   margin-bottom: 50px;
 }
-.containerPrincipalSingle .containerPrincipalImg .buttonAllPhoto:hover {
+.buttonAllPhoto:hover {
   background-color: #c9c9c9;
+}
+
+button a {
+  text-decoration: none;
 }
 
 /*Responsive pour les tablettes*/
@@ -613,4 +610,74 @@ body {
   text-transform: uppercase;
   -webkit-text-stroke: 2px white;
   -webkit-text-fill-color: transparent;
+}
+
+/* liste photo */
+.photoList {
+  margin-top: 150px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.photoList .containerPhotoList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 720px;
+  height: 655px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.blocPhoto {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.hoverImg {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.hoverImg:hover {
+  opacity: 1;
+}
+.hoverImg:hover .iconFullscreen {
+  width: 34px !important;
+  height: 34px !important;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.hoverImg:hover .hoverEye {
+  width: 46px !important;
+  height: 31px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hoverImg:hover h2 {
+  position: absolute;
+  left: 10px;
+  top: 612px;
+  color: white;
+  font-family: "poppins";
+  font-size: 14px;
+}
+.hoverImg:hover h3 {
+  position: absolute;
+  left: 640px;
+  top: 612px;
+  color: white;
+  font-family: "poppins";
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */

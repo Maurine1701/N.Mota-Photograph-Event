@@ -29,3 +29,27 @@
         -webkit-text-fill-color: transparent;
     }
 }
+
+
+/* liste photo */
+
+
+.photoList {
+    margin-top: 150px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    .containerPhotoList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 720px;
+        height: 655px;
+        margin-right: 25px;
+        margin-bottom: 25px;
+        position: relative;
+    }
+}

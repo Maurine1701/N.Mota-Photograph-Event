@@ -2,6 +2,11 @@
 
 <body>
     <main>
+
+
+<!-- Création du Hero Header-->
+
+
     <div class="containerHero">
     <?php
     // Récupération d'une image aléatoire de la médiathèque WordPress
@@ -24,6 +29,42 @@
         <?php } ?>
             <h2 class="titreHero"> Photographe Event </h2>
     </div>
+
+
+    <!-- Création de la liste des photos -->
+
+
+<div class="photoList">
+    <?php
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'ASC', 
+    );
+
+    $photo_query = new WP_Query($args);
+
+    if ($photo_query->have_posts()) :
+        while ($photo_query->have_posts()) : $photo_query->the_post();
+    ?>    
+        <div class="containerPhotoList" id="galleryPhoto">
+           <?php get_template_part('template-parts/blocPhoto'); ?>
+        </div>
+    <?php
+        endwhile;
+        wp_reset_postdata();
+    else :
+        echo 'Aucune photo trouvée.';
+    endif;
+    ?>
+</div>
+
+
+
+
+
+
     </main>
 
 <?php get_footer(); ?>
