@@ -57,7 +57,7 @@ function load_more_photos() {
         'posts_per_page' => 12,
         'paged' => $page,
         'orderby' => 'date',
-        'order' => 'DESC',
+        'order' => 'ASC', 
     );
 
     $photo_query = new WP_Query($args);
@@ -70,7 +70,7 @@ function load_more_photos() {
         endwhile;
         wp_reset_postdata();
     else :
-        echo ''; 
+        echo '';
     endif;
 
     die();

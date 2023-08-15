@@ -4,10 +4,11 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php wp_title(); ?></title>
-    <script src="https://code.jquery.com/jquery-xxx.min.js"></script>
+    
     <script>
     var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
     </script>
+
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

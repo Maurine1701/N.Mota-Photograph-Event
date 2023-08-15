@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
                 page: page,
             },
             success: function (response) {
-                if (response.trim() === '') {// on Vérifie si nous on a atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
+                if (!response.trim()) {// on Vérifie si nous on a atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
                     $('#loadMoreButton').hide(); // Cachez le bouton chargez plus
                 } else {
                     // Ajoutez la réponse (nouvelles photos) à la fin de la liste existante
@@ -115,6 +115,8 @@ jQuery(document).ready(function ($) {
         });
     }
 });
+
+
 
 
 
