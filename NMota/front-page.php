@@ -60,7 +60,11 @@
     ?>
 </div>
 
+    <!-- Création de la pagination en ajax -->
 
+<div id="loadMoreContainer">
+    <button id="loadMoreButton">Charger Plus</button>
+</div>
 
 
 

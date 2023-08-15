@@ -77,4 +77,47 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+/* Création de la pagination ajax */
+
+// on démarre la fonction après le chargement du dom
+jQuery(document).ready(function ($) {
+
+    var page = 2;
+    var loading = false;
+
+    // Ajout d'un gestionnaire de clic sur le bouton "chargez plus"
+    $('#loadMoreButton').click(function () {
+        if (!loading) {
+            loading = true;
+            // Charge + de photos en appelant la fonction loadMorePhotos avec le numéro de page actuel
+            loadMorePhotos(page);
+            page++; // et on Incrémente le numéro de page pour la prochaine fois
+        }
+    });
+
+    function loadMorePhotos(page) {
+        $.ajax({
+            url: ajaxurl, // URL du script WordPress pour le traitement AJAX
+            type: 'post',
+            data: {
+                action: 'load_more_photos', // on appelle la fonction wordpress créer dans le fichier function
+                page: page,
+            },
+            success: function (response) {
+                if (response.trim() === '') {// on Vérifie si nous on a atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
+                    $('#loadMoreButton').hide(); // Cachez le bouton chargez plus
+                } else {
+                    // Ajoutez la réponse (nouvelles photos) à la fin de la liste existante
+                    $('.photoList').append(response);
+                    loading = false; // Marquez le chargement comme terminé
+                }
+            }
+        });
+    }
+});
+
+
+
+
+
 
