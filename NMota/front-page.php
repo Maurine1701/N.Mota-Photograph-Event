@@ -27,8 +27,63 @@
     ?>
             <img class="imgHero" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
         <?php } ?>
-            <h2 class="titreHero"> Photographe Event </h2>
+            <h1 class="titreHero"> Photographe Event </h1>
     </div>
+
+
+    <!-- Création des filtres -->
+
+    <section class="filter">
+
+    <div class="filterLeft">    
+        <div class="categoryFilter">
+            <select name="categorie" class="selectFilter selectCategory">
+            <?php 
+            $categorie_taxonomie = get_terms( array(
+                'taxonomy' => 'categorie',
+                'hide_empty' => true,
+
+            ) );
+
+                echo '<option value="" disabled selected>CATÉGORIES</option>';
+                foreach ($categorie_taxonomie as $iteration_categorie) {
+                    echo '<option class="option" value="'.$iteration_categorie->name.'"> ' .  $iteration_categorie->name  . '</option>';
+                }
+
+            
+            ?>
+            </select>
+        </div>
+
+
+
+        <div class="formatFilter"> 
+            <select name="format" class="selectFilter selectFormat">
+            <?php 
+                $format_taxonomie = get_terms( array(
+                    'taxonomy' => 'format',
+                    'hide_empty' => true,
+
+                ) );
+                
+                    echo '<option value="" disabled selected>FORMATS</option>';
+                    foreach ($format_taxonomie as $iteration_format) {
+                        echo '<option class="option" value="'.$iteration_format->name.'"> ' . $iteration_format->name . '</option>';
+                    }
+
+            ?>
+            </select>
+        </div>
+    </div>
+        <div class="dateFilter">
+
+            <select name="annee" class="selectFilter selectDate">
+                <option value="" disabled selected>trier par</option>
+                <option class="option" value="old">Les plus anciennes</option>
+                <option class="option" value="new">Les plus récentes</option>
+            </select>
+        </div>
+    </section>
 
 
     <!-- Création de la liste des photos -->

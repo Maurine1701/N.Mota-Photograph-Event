@@ -117,6 +117,55 @@ jQuery(document).ready(function ($) {
 });
 
 
+// Transforme le style des filtres au clic 
+
+
+jQuery(document).ready(function ($) {
+    $('.selectFilter').click(function () {
+        $(this).toggleClass('active');
+    });
+});
+
+
+
+// changement de photos à la selection de filtres
+
+jQuery(document).ready(function ($) {
+    // Gère le changement de sélection de catégorie
+    $('.selectCategory').change(function () {
+        var selectedCategory = $(this).val();
+        filterPhotos(selectedCategory, '', '');
+    });
+
+    // Gère le changement de sélection de format
+    $('.selectFormat').change(function () {
+        var selectedFormat = $(this).val();
+        filterPhotos('', selectedFormat, '');
+    });
+
+    // Gère le changement de sélection de date
+    $('.selectDate').change(function () {
+        var selectedDate = $(this).val();
+        filterPhotos('', '', selectedDate);
+    });
+
+    function filterPhotos(category, format, date) {
+        $.ajax({
+            url: ajaxurl, // URL du script WordPress pour le traitement AJAX
+            type: 'post',
+            data: {
+                action: 'filter_photos', // Action WordPress
+                category: category,
+                format: format,
+                date: date,
+            },
+            success: function (response) {
+                $('.photoList').html(response); // Remplace la liste de photos par la nouvelle
+            }
+        });
+    }
+});
+
 
 
 

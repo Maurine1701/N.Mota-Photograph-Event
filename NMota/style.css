@@ -612,6 +612,63 @@ button a {
   -webkit-text-fill-color: transparent;
 }
 
+/* Filtres */
+.filter {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+.filter .filterLeft {
+  display: flex;
+  width: 720px;
+  margin-left: 217px;
+  gap: 160px;
+}
+.filter .filterLeft .categoryFilter {
+  width: 260px;
+  height: 43px;
+}
+.filter .filterLeft .formatFilter {
+  width: 260px;
+  height: 43px;
+}
+.filter .selectFilter {
+  width: 300px;
+  height: 43px;
+  border-radius: 8px;
+  border: black solid 1px;
+  padding: 11px 18px 11px 18px;
+  background: url("assets/images/flecheFiltres.png") no-repeat;
+  background-position: right 18px center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+.filter .selectFilter.active {
+  border-radius: 8px 8px 0 0;
+  border: 1px solid blue;
+}
+.filter .selectCategory,
+.filter .selectFormat,
+.filter .selectDate {
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.filter .selectCategory option[disabled],
+.filter .selectFormat option[disabled],
+.filter .selectDate option[disabled] {
+  display: none;
+}
+.filter .dateFilter {
+  width: 300px;
+  height: 43px;
+  margin-left: auto;
+  margin-right: 217px;
+}
+
 /* liste photo */
 .photoList {
   margin-top: 150px;
@@ -645,6 +702,50 @@ button a {
   margin: auto;
 }
 
+/* Responsive Mobile */
+@media (max-width: 600px) {
+  .containerHero {
+    height: 253px;
+    margin-bottom: -60px;
+  }
+  .containerHero .titreHero {
+    font-size: 28px;
+    -webkit-text-stroke: 1px white;
+  }
+  .photoList .containerPhotoList {
+    width: 335px;
+    height: 300px;
+  }
+  #loadMoreContainer #loadMoreButton {
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+  .filter {
+    margin-bottom: -110px;
+    margin-left: -190px;
+    overflow-x: auto;
+  }
+  .filter .filterLeft .formatFilter {
+    margin-left: -140px;
+  }
+  .filter .selectFilter {
+    width: 270px;
+  }
+  .filter .selectCategory,
+  .filter .selectFormat,
+  .filter .selectDate {
+    font-size: 12px;
+  }
+  .filter .selectCategory option,
+  .filter .selectFormat option,
+  .filter .selectDate option {
+    font-size: 8px !important;
+    padding: 5px 2px 1px !important;
+    -webkit-appearance: none !important;
+       -moz-appearance: none !important;
+            appearance: none !important;
+  }
+}
 .blocPhoto {
   -o-object-fit: cover;
      object-fit: cover;
@@ -694,4 +795,25 @@ button a {
   color: white;
   font-family: "poppins";
   font-size: 14px;
+}
+
+/* Responsive Mobile */
+@media (max-width: 600px) {
+  .hoverImg:hover .iconFullscreen {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .hoverImg:hover .hoverEye {
+    width: 23px !important;
+    height: 15px !important;
+  }
+  .hoverImg:hover h2 {
+    top: 265px;
+    font-size: 12px;
+  }
+  .hoverImg:hover h3 {
+    left: 265px;
+    top: 265px;
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -31,6 +31,72 @@
 }
 
 
+
+/* Filtres */
+
+.filter {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: -100px;
+
+    .filterLeft {
+        display: flex;
+        width: 720px;
+        margin-left: 217px;
+        gap: 160px;
+
+        .categoryFilter {
+            width: 260px;
+            height: 43px;
+        }
+
+        .formatFilter {
+            width: 260px;
+            height: 43px;
+        }
+    }
+
+    .selectFilter {
+        width: 300px;
+        height: 43px;
+        border-radius: 8px;
+        border: black solid 1px;
+        padding: 11px 18px 11px 18px;
+        background: url('assets/images/flecheFiltres.png') no-repeat;
+        background-position: right 18px center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+
+        &.active {
+            border-radius: 8px 8px 0 0;
+            border: 1px solid blue;
+        }
+    }
+
+    .selectCategory,
+    .selectFormat,
+    .selectDate {
+        font-family: 'poppins';
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: uppercase;
+
+        & option[disabled] {
+            display: none;
+        }
+    }
+
+
+    .dateFilter {
+        width: 300px;
+        height: 43px;
+        margin-left: auto;
+        margin-right: 217px;
+    }
+}
+
 /* liste photo */
 
 
@@ -66,5 +132,66 @@
         border: none;
         background-color: #d8d8d8;
         margin: auto;
+    }
+}
+
+
+/* Responsive Mobile */
+
+@media (max-width: 600px) {
+    .containerHero {
+        height: 253px;
+        margin-bottom: -60px;
+
+        .titreHero {
+            font-size: 28px;
+            -webkit-text-stroke: 1px white;
+        }
+    }
+
+    .photoList {
+
+        .containerPhotoList {
+            width: 335px;
+            height: 300px;
+        }
+    }
+
+    #loadMoreContainer {
+        #loadMoreButton {
+            margin-top: -30px;
+            margin-bottom: -30px;
+        }
+    }
+
+    .filter {
+        margin-bottom: -110px;
+        margin-left: -190px;
+        overflow-x: auto;
+
+        .filterLeft {
+
+            .formatFilter {
+                margin-left: -140px;
+            }
+        }
+
+        .selectFilter {
+            width: 270px;
+
+        }
+
+        .selectCategory,
+        .selectFormat,
+        .selectDate {
+            font-size: 12px;
+
+            option {
+                font-size: 8px !important;
+                padding: 5px 2px 1px !important;
+                appearance: none !important;
+            }
+
+        }
     }
 }
