@@ -702,6 +702,54 @@ button a {
   margin: auto;
 }
 
+/* Responsive tablette */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .containerHero {
+    height: 450px;
+    margin-bottom: -60px;
+  }
+  .containerHero .titreHero {
+    font-size: 48px;
+  }
+  .photoList .containerPhotoList {
+    width: 335px;
+    height: 300px;
+  }
+  #loadMoreContainer #loadMoreButton {
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+  .filter {
+    margin-bottom: -110px;
+    margin-left: -190px;
+    overflow-x: auto;
+  }
+  .filter .filterLeft {
+    gap: 122px;
+    margin-right: -19px;
+    margin-left: 225px;
+  }
+  .filter .filterLeft .formatFilter {
+    margin-left: -140px;
+  }
+  .filter .selectFilter {
+    width: 215px;
+  }
+  .filter .selectCategory,
+  .filter .selectFormat,
+  .filter .selectDate {
+    font-size: 12px;
+  }
+  .filter .selectCategory option,
+  .filter .selectFormat option,
+  .filter .selectDate option {
+    font-size: 8px !important;
+    padding: 5px 2px 1px !important;
+    -webkit-appearance: none !important;
+       -moz-appearance: none !important;
+            appearance: none !important;
+  }
+}
 /* Responsive Mobile */
 @media (max-width: 600px) {
   .containerHero {

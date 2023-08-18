@@ -136,6 +136,70 @@
 }
 
 
+/* Responsive tablette */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .containerHero {
+        height: 450px;
+        margin-bottom: -60px;
+
+        .titreHero {
+            font-size: 48px;
+        }
+    }
+
+    .photoList {
+
+        .containerPhotoList {
+            width: 335px;
+            height: 300px;
+        }
+    }
+
+    #loadMoreContainer {
+        #loadMoreButton {
+            margin-top: -30px;
+            margin-bottom: -30px;
+        }
+    }
+
+    .filter {
+        margin-bottom: -110px;
+        margin-left: -190px;
+        overflow-x: auto;
+
+        .filterLeft {
+            gap: 122px;
+            margin-right: -19px;
+            margin-left: 225px;
+
+            .formatFilter {
+                margin-left: -140px;
+            }
+        }
+
+        .selectFilter {
+            width: 215px;
+
+        }
+
+        .selectCategory,
+        .selectFormat,
+        .selectDate {
+            font-size: 12px;
+
+            option {
+                font-size: 8px !important;
+                padding: 5px 2px 1px !important;
+                appearance: none !important;
+            }
+
+        }
+    }
+}
+
+
 /* Responsive Mobile */
 
 @media (max-width: 600px) {
