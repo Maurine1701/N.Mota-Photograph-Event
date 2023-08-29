@@ -4,9 +4,9 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php wp_title(); ?></title>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+    let ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
     </script>
 
     <?php wp_head(); ?>

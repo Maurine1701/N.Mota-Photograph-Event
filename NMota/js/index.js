@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // on démarre la fonction après le chargement du dom
 jQuery(document).ready(function ($) {
 
-    var page = 2;
-    var loading = false;
+    let page = 2;
+    let loading = false;
 
     // Ajout d'un gestionnaire de clic sur le bouton "chargez plus"
     $('#loadMoreButton').click(function () {
@@ -131,44 +131,101 @@ jQuery(document).ready(function ($) {
 // changement de photos à la selection de filtres
 
 jQuery(document).ready(function ($) {
+    let selectedCategory = ''; // Variable pour stocker la catégorie sélectionnée
+    let selectedFormat = '';   // Variable pour stocker le format sélectionné
+    let selectedDate = '';     // Variable pour stocker la date sélectionnée
+
+    // Transforme le style des filtres au clic
+    $('.selectFilter').click(function () {
+        $(this).toggleClass('active');
+    });
+
     // Gère le changement de sélection de catégorie
     $('.selectCategory').change(function () {
-        var selectedCategory = $(this).val();
-        filterPhotos(selectedCategory, '', '');
+        selectedCategory = $(this).val(); // Met à jour la catégorie sélectionnée
+        filterPhotos();
     });
 
     // Gère le changement de sélection de format
     $('.selectFormat').change(function () {
-        var selectedFormat = $(this).val();
-        filterPhotos('', selectedFormat, '');
+        selectedFormat = $(this).val(); // Met à jour le format sélectionné
+        filterPhotos();
     });
 
     // Gère le changement de sélection de date
     $('.selectDate').change(function () {
-        var selectedDate = $(this).val();
-        filterPhotos('', '', selectedDate);
+        selectedDate = $(this).val(); // Met à jour la date sélectionnée
+        filterPhotos();
     });
 
-    function filterPhotos(category, format, date) {
+    function filterPhotos() {
         $.ajax({
-            url: ajaxurl, // URL du script WordPress pour le traitement AJAX
+            url: ajaxurl,
             type: 'post',
             data: {
-                action: 'filter_photos', // Action WordPress
-                category: category,
-                format: format,
-                date: date,
+                action: 'filter_photos',
+                category: selectedCategory,
+                format: selectedFormat,
+                date: selectedDate,
             },
             success: function (response) {
-                $('.photoList').html(response); // Remplace la liste de photos par la nouvelle
+                $('.photoList').html(response);
             }
         });
     }
 });
 
 
+// gestion lightbox
 
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const containerLightbox = document.querySelector('.containerLightbox');
+    const lightboxImage = document.querySelector('.lightboxImage');
+    const closeLightbox = document.querySelector('.closeLightbox');
+    const rightArrow = document.querySelector('.rightArrow');
+    const leftArrow = document.querySelector('.leftArrow');
+    const iconFullscreenImages = document.querySelectorAll('.iconFullscreen');
+
+    let currentImageIndex = 0;
+
+    iconFullscreenImages.forEach((image, index) => {
+        image.addEventListener('click', function (e) {
+            currentImageIndex = index;
+            lightboxImage.src = e.target.parentElement.parentElement.children[0].src;
+            containerLightbox.style.display = 'block';
+        });
+    });
+
+    closeLightbox.addEventListener('click', function () {
+        containerLightbox.style.display = 'none';
+    });
+
+    // Fonction de mise à jour des images
+    function updateBanner() {
+        lightboxImage.src = iconFullscreenImages[currentImageIndex].parentElement.parentElement.children[0].src;
+    }
+
+    // Fonction pour la fleche suivante
+    function nextSlide() {
+        currentImageIndex = currentImageIndex + 1
+        updateBanner();
+    }
 
 
+    // Fonction pour la fleche precedente
+    function previousSlide() {
+        currentImageIndex = currentImageIndex - 1
+        updateBanner();
+    }
 
+    // ajout d'un evenement au clic sur les fleches
+    rightArrow.addEventListener('click', function () {
+        nextSlide();
+    });
+
+    leftArrow.addEventListener('click', function () {
+        previousSlide();
+    });
+});

@@ -39,6 +39,18 @@
     margin-top: 100px;
     margin-bottom: -100px;
 
+    select option {
+        background-color: initial !important;
+        color: initial !important;
+        cursor: pointer;
+    }
+
+
+    select option:hover {
+        background-color: #FE5858 !important;
+        color: #ffffff !important;
+    }
+
     .filterLeft {
         display: flex;
         width: 720px;
@@ -72,6 +84,15 @@
         &.active {
             border-radius: 8px 8px 0 0;
             border: 1px solid blue;
+
+            .option:hover {
+                background-color: red !important;
+                /* Changer la couleur au survol */
+                color: white !important;
+                /* Changer la couleur du texte si nécessaire */
+            }
+
+
         }
     }
 
@@ -207,9 +228,11 @@
         height: 253px;
         margin-bottom: -60px;
 
+
         .titreHero {
             font-size: 28px;
             -webkit-text-stroke: 1px white;
+            z-index: 1;
         }
     }
 
@@ -242,7 +265,6 @@
 
         .selectFilter {
             width: 270px;
-
         }
 
         .selectCategory,

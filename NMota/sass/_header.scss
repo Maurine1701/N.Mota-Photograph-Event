@@ -137,6 +137,16 @@
 
 @media (max-width: 600px) {
 
+    .header ul li a {
+        color: white;
+        font-size: 44px;
+        margin-bottom: 30px;
+    }
+
+    .header ul li {
+        margin-bottom: 30px;
+    }
+
     .logo {
         img {
             width: 138px;
@@ -151,14 +161,20 @@
 
     nav.navigation {
         top: 125px !important;
+        ;
 
         &.open {
-            margin-top: 257px !important;
-            margin-right: -220px !important;
+            margin-top: 627px !important;
+            margin-right: -224px !important;
+            background-color: #E00000 !important;
+            z-index: 2;
+            height: 550px;
+            width: 600px;
+
         }
 
         ul {
-            font-size: 16px !important;
+            margin-top: 150px;
 
         }
     }

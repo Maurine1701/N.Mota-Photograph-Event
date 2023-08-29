@@ -88,8 +88,8 @@ function filter_photos() {
     $args = array(
         'post_type' => 'photo',
         'posts_per_page' => -1,
-        'orderby' => 'date', // Par défaut, triez par date
-        'order' => 'DESC',   // Par défaut, tri décroissant
+        'orderby' => 'date', 
+        'order' => 'DESC',   
         'tax_query' => array(),
     );
 

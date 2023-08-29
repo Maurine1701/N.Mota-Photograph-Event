@@ -134,6 +134,14 @@ body {
 }
 /*Responsive pour les mobiles*/
 @media (max-width: 600px) {
+  .header ul li a {
+    color: white;
+    font-size: 44px;
+    margin-bottom: 30px;
+  }
+  .header ul li {
+    margin-bottom: 30px;
+  }
   .logo img {
     width: 138px;
     height: 9px;
@@ -146,11 +154,15 @@ body {
     top: 125px !important;
   }
   nav.navigation.open {
-    margin-top: 257px !important;
-    margin-right: -220px !important;
+    margin-top: 627px !important;
+    margin-right: -224px !important;
+    background-color: #E00000 !important;
+    z-index: 2;
+    height: 550px;
+    width: 600px;
   }
   nav.navigation ul {
-    font-size: 16px !important;
+    margin-top: 150px;
   }
 }
 .footer {
@@ -618,6 +630,15 @@ button a {
   margin-top: 100px;
   margin-bottom: -100px;
 }
+.filter select option {
+  background-color: initial !important;
+  color: initial !important;
+  cursor: pointer;
+}
+.filter select option:hover {
+  background-color: #FE5858 !important;
+  color: #ffffff !important;
+}
 .filter .filterLeft {
   display: flex;
   width: 720px;
@@ -648,6 +669,12 @@ button a {
 .filter .selectFilter.active {
   border-radius: 8px 8px 0 0;
   border: 1px solid blue;
+}
+.filter .selectFilter.active .option:hover {
+  background-color: red !important;
+  /* Changer la couleur au survol */
+  color: white !important;
+  /* Changer la couleur du texte si nécessaire */
 }
 .filter .selectCategory,
 .filter .selectFormat,
@@ -759,6 +786,7 @@ button a {
   .containerHero .titreHero {
     font-size: 28px;
     -webkit-text-stroke: 1px white;
+    z-index: 1;
   }
   .photoList .containerPhotoList {
     width: 335px;
@@ -864,4 +892,74 @@ button a {
     top: 265px;
     font-size: 12px;
   }
+}
+.containerLightbox {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 20;
+}
+.containerLightbox .fullscreenPhoto {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+.containerLightbox .fullscreenPhoto .leftArrow,
+.containerLightbox .fullscreenPhoto .rightArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 20;
+}
+.containerLightbox .fullscreenPhoto .leftArrow.leftArrow,
+.containerLightbox .fullscreenPhoto .rightArrow.leftArrow {
+  left: 20px;
+}
+.containerLightbox .fullscreenPhoto .leftArrow.rightArrow,
+.containerLightbox .fullscreenPhoto .rightArrow.rightArrow {
+  right: 20px;
+}
+.containerLightbox .fullscreenPhoto .lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+}
+.containerLightbox .fullscreenPhoto h5,
+.containerLightbox .fullscreenPhoto h6 {
+  font-family: "Space Mono";
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.containerLightbox .fullscreenPhoto h5 {
+  margin-left: -300px;
+  margin-top: 2px;
+}
+.containerLightbox .fullscreenPhoto h6 {
+  margin-top: 5px;
+}
+.containerLightbox .closeLightbox {
+  position: absolute;
+  right: 195px;
+  top: 20px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }/*# sourceMappingURL=style.css.map */
