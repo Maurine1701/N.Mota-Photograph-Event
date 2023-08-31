@@ -85,13 +85,16 @@
 
 
         .containerImgArrows {
+            display: none;
             width: 81px;
             height: 71px;
             background-color: #d8d8d8;
             overflow: hidden;
             margin-top: 10px;
+            margin-bottom: -80px;
 
             .img-arrows {
+
                 max-width: 100%;
                 height: auto;
                 object-fit: cover;
@@ -104,6 +107,15 @@
 
             display: flex;
             justify-content: space-between;
+            width: 80px;
+            margin-top: 83px;
+            margin-right: 2px;
+
+
+            .arrow-left:hover~.containerImgArrows .img-arrows,
+            .arrow-right:hover~.containerImgArrows .img-arrows {
+                display: block;
+            }
 
         }
     }

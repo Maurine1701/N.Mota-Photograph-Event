@@ -70,12 +70,17 @@
             </div>
             <div class="arrowsContainer">
                 <?php if (!empty($previousPost)){ ?>
-                <a href="<?php echo get_permalink($previousPost->ID) ?>"><img class="arrowLeft" src="<?php echo get_theme_file_uri() .'/assets/images/arrowLeft.png';?>" alt="Flèche précédent"></a>
+                    <a href="<?php echo get_permalink($previousPost->ID) ?>" class="arrowLink arrowLinkPrevious" data-thumbnail="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id($previousPost->ID), 'thumbnail'); ?>">
+                    <img class="arrowLeft" src="<?php echo get_theme_file_uri() .'/assets/images/arrowLeft.png';?>" alt="Flèche précédent">
+                    </a>
                 <?php } ?>
                 <?php if (!empty($nextPost)){ ?>
-                <a href="<?php echo get_permalink($nextPost->ID) ?>"><img class="arrowRight" src="<?php echo get_theme_file_uri() .'/assets/images/arrowRight.png';?>" alt="Flèche suivant"></a>
+                    <a href="<?php echo get_permalink($nextPost->ID) ?>" class="arrowLink arrowLinkNext" data-thumbnail="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id($nextPost->ID), 'thumbnail'); ?>">
+                    <img class="arrowRight" src="<?php echo get_theme_file_uri() .'/assets/images/arrowRight.png';?>" alt="Flèche suivant">
+                    </a>
                 <?php } ?>
             </div>
+
             <?php } ?>
         </div>
     </div>

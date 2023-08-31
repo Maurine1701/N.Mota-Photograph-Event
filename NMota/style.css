@@ -451,11 +451,13 @@ body {
   margin-left: auto;
 }
 .contactBtn .navigationArrows .containerImgArrows {
+  display: none;
   width: 81px;
   height: 71px;
   background-color: #d8d8d8;
   overflow: hidden;
   margin-top: 10px;
+  margin-bottom: -80px;
 }
 .contactBtn .navigationArrows .containerImgArrows .img-arrows {
   max-width: 100%;
@@ -466,6 +468,13 @@ body {
 .contactBtn .navigationArrows .arrowsContainer {
   display: flex;
   justify-content: space-between;
+  width: 80px;
+  margin-top: 83px;
+  margin-right: 2px;
+}
+.contactBtn .navigationArrows .arrowsContainer .arrow-left:hover ~ .containerImgArrows .img-arrows,
+.contactBtn .navigationArrows .arrowsContainer .arrow-right:hover ~ .containerImgArrows .img-arrows {
+  display: block;
 }
 
 /* Partie photos apparentées */

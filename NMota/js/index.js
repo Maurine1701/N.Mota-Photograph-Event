@@ -126,49 +126,97 @@ jQuery(document).ready(function ($) {
     });
 });
 
+// affichage navigation detail photo survol
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Sélection de tous les éléments necessaires
+    const containerImgArrows = document.querySelector('.containerImgArrows');
+    const arrowLeft = document.querySelector('.arrowLeft');
+    const arrowRight = document.querySelector('.arrowRight');
+    const arrowLinks = document.querySelectorAll('.arrowLink');
+    const thumbnailImage = document.querySelector('.img-arrows');
+
+    arrowLinks.forEach(arrowLink => {
+        // Lorsque le curseur entre dans la flèche
+        arrowLink.addEventListener('mouseenter', function () {
+            // Obtenez l'URL de l'image miniature à partir de l'attribut data-thumbnail
+            const thumbnailUrl = this.getAttribute('data-thumbnail');
+            // Mettez à jour l'URL de l'image miniature
+            thumbnailImage.src = thumbnailUrl;
+        });
+    });
+
+    // Lorsque le curseur entre dans la flèche gauche
+    arrowLeft.addEventListener('mouseover', function () {
+        // Afficher le conteneur de l'image miniature
+        containerImgArrows.style.display = 'block';
+    });
+
+    // Lorsque le curseur quitte la flèche gauche
+    arrowLeft.addEventListener('mouseout', function () {
+        // Masquer le conteneur de l'image miniature
+        containerImgArrows.style.display = 'none';
+    });
+
+    // Lorsque le curseur entre dans la flèche droite
+    arrowRight.addEventListener('mouseover', function () {
+        // Afficher le conteneur de l'image miniature
+        containerImgArrows.style.display = 'block';
+    });
+
+    // Lorsque le curseur quitte la flèche droite
+    arrowRight.addEventListener('mouseout', function () {
+        // Masquer le conteneur de l'image miniature
+        containerImgArrows.style.display = 'none';
+    });
+});
 
 // changement de photos à la selection de filtres
 
 jQuery(document).ready(function ($) {
-    let selectedCategory = ''; // Variable pour stocker la catégorie sélectionnée
-    let selectedFormat = '';   // Variable pour stocker le format sélectionné
-    let selectedDate = '';     // Variable pour stocker la date sélectionnée
+    // Variables pour stocker les filtres sélectionnés
+    let selectedCategory = '';
+    let selectedFormat = '';
+    let selectedDate = '';
 
     // Transforme le style des filtres au clic
     $('.selectFilter').click(function () {
-        $(this).toggleClass('active');
+        $(this).toggleClass('active'); // Lorsqu'un filtre est cliqué, cette ligne ajoute ou supprime la classe 'active'
     });
 
     // Gère le changement de sélection de catégorie
     $('.selectCategory').change(function () {
-        selectedCategory = $(this).val(); // Met à jour la catégorie sélectionnée
-        filterPhotos();
+        selectedCategory = $(this).val(); // Met à jour la variable selectedCategory avec la valeur de la catégorie sélectionnée
+        filterPhotos(); // Appelle la fonction pour filtrer les photos
     });
 
     // Gère le changement de sélection de format
     $('.selectFormat').change(function () {
-        selectedFormat = $(this).val(); // Met à jour le format sélectionné
-        filterPhotos();
+        selectedFormat = $(this).val(); // Met à jour la variable selectedFormat avec la valeur du format sélectionné
+        filterPhotos(); // Appelle la fonction pour filtrer les photos
     });
 
     // Gère le changement de sélection de date
     $('.selectDate').change(function () {
-        selectedDate = $(this).val(); // Met à jour la date sélectionnée
-        filterPhotos();
+        selectedDate = $(this).val(); // Met à jour la variable selectedDate avec la valeur de la date sélectionnée
+        filterPhotos(); // Appelle la fonction pour filtrer les photos
     });
 
+    // Fonction pour filtrer les photos
     function filterPhotos() {
+        // Effectue une requête AJAX pour obtenir les photos filtrées
         $.ajax({
-            url: ajaxurl,
-            type: 'post',
+            url: ajaxurl, // URL vers le script WordPress qui traitera la requête
+            type: 'post', // Méthode de la requête
             data: {
-                action: 'filter_photos',
-                category: selectedCategory,
-                format: selectedFormat,
-                date: selectedDate,
+                action: 'filter_photos', // Action à effectuer côté serveur
+                category: selectedCategory, // Catégorie sélectionnée
+                format: selectedFormat,     // Format sélectionné
+                date: selectedDate,         // Date sélectionnée
             },
             success: function (response) {
+                // Met à jour le contenu de la div avec la classe .photoList avec les photos filtrées
                 $('.photoList').html(response);
             }
         });
@@ -180,7 +228,7 @@ jQuery(document).ready(function ($) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    // Sélection des éléments HTML nécessaires
     const containerLightbox = document.querySelector('.containerLightbox');
     const lightboxImage = document.querySelector('.lightboxImage');
     const closeLightbox = document.querySelector('.closeLightbox');
@@ -188,44 +236,56 @@ document.addEventListener("DOMContentLoaded", function () {
     const leftArrow = document.querySelector('.leftArrow');
     const iconFullscreenImages = document.querySelectorAll('.iconFullscreen');
 
+    // Initialisation de l'index de l'image actuelle
     let currentImageIndex = 0;
 
+    // Ajout des écouteurs d'événements aux images en plein écran
     iconFullscreenImages.forEach((image, index) => {
         image.addEventListener('click', function (e) {
+            // Mise à jour de l'index de l'image actuelle
             currentImageIndex = index;
+            // Mise à jour de l'URL de l'image dans la lightbox
             lightboxImage.src = e.target.parentElement.parentElement.children[0].src;
+            // Affichage de la lightbox
             containerLightbox.style.display = 'block';
         });
     });
 
+    // Ajout de l'écouteur d'événement pour fermer la lightbox
     closeLightbox.addEventListener('click', function () {
         containerLightbox.style.display = 'none';
     });
 
-    // Fonction de mise à jour des images
+    // Fonction de mise à jour de l'image dans la lightbox
     function updateBanner() {
+        // Mettre à jour l'URL de l'image affichée dans la lightbox
         lightboxImage.src = iconFullscreenImages[currentImageIndex].parentElement.parentElement.children[0].src;
     }
 
-    // Fonction pour la fleche suivante
+    // Fonction pour passer à la prochaine image
     function nextSlide() {
-        currentImageIndex = currentImageIndex + 1
+        // Incrémenter l'index de l'image actuelle
+        currentImageIndex = currentImageIndex + 1;
+        // Mettre à jour l'image dans la lightbox
         updateBanner();
     }
 
-
-    // Fonction pour la fleche precedente
+    // Fonction pour passer à l'image précédente
     function previousSlide() {
-        currentImageIndex = currentImageIndex - 1
+        // Décrémenter l'index de l'image actuelle
+        currentImageIndex = currentImageIndex - 1;
+        // Mettre à jour l'image dans la lightbox
         updateBanner();
     }
 
-    // ajout d'un evenement au clic sur les fleches
+    // Ajout d'écouteurs d'événements aux flèches
     rightArrow.addEventListener('click', function () {
+        // Appeler la fonction pour passer à la prochaine image
         nextSlide();
     });
 
     leftArrow.addEventListener('click', function () {
+        // Appeler la fonction pour passer à l'image précédente
         previousSlide();
     });
 });
