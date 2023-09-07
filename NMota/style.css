@@ -639,15 +639,6 @@ button a {
   margin-top: 100px;
   margin-bottom: -100px;
 }
-.filter select option {
-  background-color: initial !important;
-  color: initial !important;
-  cursor: pointer;
-}
-.filter select option:hover {
-  background-color: #FE5858 !important;
-  color: #ffffff !important;
-}
 .filter .filterLeft {
   display: flex;
   width: 720px;
@@ -679,12 +670,6 @@ button a {
   border-radius: 8px 8px 0 0;
   border: 1px solid blue;
 }
-.filter .selectFilter.active .option:hover {
-  background-color: red !important;
-  /* Changer la couleur au survol */
-  color: white !important;
-  /* Changer la couleur du texte si nécessaire */
-}
 .filter .selectCategory,
 .filter .selectFormat,
 .filter .selectDate {
@@ -692,11 +677,6 @@ button a {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
-}
-.filter .selectCategory option[disabled],
-.filter .selectFormat option[disabled],
-.filter .selectDate option[disabled] {
-  display: none;
 }
 .filter .dateFilter {
   width: 300px;

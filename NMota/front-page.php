@@ -42,10 +42,11 @@
             $categorie_taxonomie = get_terms( array(
                 'taxonomy' => 'categorie',
                 'hide_empty' => true,
-
+                'orderby' => 'name',
+                'order' => 'DESC', 
             ) );
 
-                echo '<option value="" disabled selected class="defaultOption">CATÉGORIES</option>';
+                echo '<option value="" class="defaultOption">CATÉGORIES</option>';
                 foreach ($categorie_taxonomie as $iteration_categorie) {
                     echo '<option class="option" value="'.$iteration_categorie->name.'"> ' .  $iteration_categorie->name  . '</option>';
                 }
@@ -66,7 +67,7 @@
 
                 ) );
                 
-                    echo '<option value="" disabled selected class="defaultOption">FORMATS</option>';
+                    echo '<option value="" class="defaultOption">FORMATS</option>';
                     foreach ($format_taxonomie as $iteration_format) {
                         echo '<option class="option" value="'.$iteration_format->name.'"> ' . $iteration_format->name . '</option>';
                     }
@@ -78,7 +79,7 @@
         <div class="dateFilter">
 
             <select name="annee" class="selectFilter selectDate">
-                <option value="" disabled selected class="defaultOption">trier par</option>
+                <option value="" class="defaultOption">trier par</option>
                 <option class="option" value="old">Les plus anciennes</option>
                 <option class="option" value="new">Les plus récentes</option>
             </select>
