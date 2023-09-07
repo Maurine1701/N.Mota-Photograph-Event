@@ -263,8 +263,8 @@ function openLightbox(index) {
     const container = $('.containerPhotoList').eq(index);
 
     // Extraire la référence et la catégorie de l'image à partir des données de l'élément HTML
-    const reference = container.find('.lightboxImage').data('reference');
-    const category = container.find('.lightboxImage').data('categorie');
+    const reference = container.find('h2').data('reference');
+    const category = container.find('h3').data('categorie');
 
     // Mettre à jour les éléments HTML de la lightbox avec les informations de l'image
     $('.lightboxImage').attr('src', imageUrl);
@@ -276,11 +276,13 @@ function openLightbox(index) {
     updateImageUrls(); // Mettre à jour les URLs d'images
 }
 
+
 // Fonction pour mettre à jour les informations de l'image affichée
+
 function updateImageInfo() {
     // Récupérer les informations de l'image à partir des éléments HTML
-    const reference = $('h2').text();
-    const category = $('.h3').text();
+    const reference = $('.hoverImg h2').text();
+    const category = $('.hoverImg h3').text();
 
     // Mettre à jour les éléments HTML appropriés avec les informations de l'image
     $('.refLightbox').text(reference);
@@ -307,6 +309,3 @@ $('.leftArrow').on('click', function () {
         openLightbox(currentImageIndex); // Ouvrir la lightbox avec l'image précédente
     }
 });
-
-// Appel initial pour mettre à jour les URL d'images
-updateImageUrls();
