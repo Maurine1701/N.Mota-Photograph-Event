@@ -1,7 +1,6 @@
 console.log("chargé");
 
 
-
 /* gestion de la modale*/
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -226,66 +225,88 @@ jQuery(document).ready(function ($) {
 
 // gestion lightbox
 
+// Fonction pour mettre à jour la liste d'URLs d'images
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Sélection des éléments HTML nécessaires
-    const containerLightbox = document.querySelector('.containerLightbox');
-    const lightboxImage = document.querySelector('.lightboxImage');
-    const closeLightbox = document.querySelector('.closeLightbox');
-    const rightArrow = document.querySelector('.rightArrow');
-    const leftArrow = document.querySelector('.leftArrow');
-    const iconFullscreenImages = document.querySelectorAll('.iconFullscreen');
+const imageUrls = []; // Tableau pour stocker les URLs des images
+let currentImageIndex = 0; // On définit une variable currentImageIndex à 0 pour suivre l'index de l'image actuellement affichée.
 
-    // Initialisation de l'index de l'image actuelle
-    let currentImageIndex = 0;
+function updateImageUrls() {
+    imageUrls.length = 0; // Réinitialise le tableau
 
-    // Ajout des écouteurs d'événements aux images en plein écran
-    iconFullscreenImages.forEach((image, index) => {
-        image.addEventListener('click', function (e) {
-            // Mise à jour de l'index de l'image actuelle
-            currentImageIndex = index;
-            // Mise à jour de l'URL de l'image dans la lightbox
-            lightboxImage.src = e.target.parentElement.parentElement.children[0].src;
-            // Affichage de la lightbox
-            containerLightbox.style.display = 'block';
-        });
+    // Parcourir chaque élément ayant les classes .containerPhotoList ou .containerImg
+    $('.containerPhotoList, .containerImg').each(function () {
+        const imageUrl = $(this).find('img').attr('src'); // extraction de l'URL de l'image contenue à l'intérieur de cet élément
+        imageUrls.push(imageUrl); // Ajout de l'URL de l'image au tableau
     });
+}
 
-    // Ajout de l'écouteur d'événement pour fermer la lightbox
-    closeLightbox.addEventListener('click', function () {
-        containerLightbox.style.display = 'none';
-    });
 
-    // Fonction de mise à jour de l'image dans la lightbox
-    function updateBanner() {
-        // Mettre à jour l'URL de l'image affichée dans la lightbox
-        lightboxImage.src = iconFullscreenImages[currentImageIndex].parentElement.parentElement.children[0].src;
-    }
 
-    // Fonction pour passer à la prochaine image
-    function nextSlide() {
-        // Incrémenter l'index de l'image actuelle
-        currentImageIndex = currentImageIndex + 1;
-        // Mettre à jour l'image dans la lightbox
-        updateBanner();
-    }
+// ajout d'un événement au clic pour l'icône de plein écran
 
-    // Fonction pour passer à l'image précédente
-    function previousSlide() {
-        // Décrémenter l'index de l'image actuelle
-        currentImageIndex = currentImageIndex - 1;
-        // Mettre à jour l'image dans la lightbox
-        updateBanner();
-    }
+$(document).on('click', '.iconFullscreen', function () {
+    // on recherche l'index de l'image cliquée dans le tableau imageUrls en utilisant la méthode indexOf
+    const clickedImageIndex = imageUrls.indexOf($(this).closest('.containerPhotoList, .containerImg').find('img').attr('src'));
 
-    // Ajout d'écouteurs d'événements aux flèches
-    rightArrow.addEventListener('click', function () {
-        // Appeler la fonction pour passer à la prochaine image
-        nextSlide();
-    });
-
-    leftArrow.addEventListener('click', function () {
-        // Appeler la fonction pour passer à l'image précédente
-        previousSlide();
-    });
+    // appelle la fonction openLightbox pour ouvrir la lightbox avec l'index de l'image cliquée
+    openLightbox(clickedImageIndex);
 });
+
+
+
+// Fonction pour ouvrir la lightbox avec l'index de l'image
+
+function openLightbox(index) {
+    const imageUrl = imageUrls[index];
+
+    // Trouver le conteneur correspondant à l'index
+    const container = $('.containerPhotoList').eq(index);
+
+    // Extraire la référence et la catégorie de l'image à partir des données de l'élément HTML
+    const reference = container.find('.lightboxImage').data('reference');
+    const category = container.find('.lightboxImage').data('categorie');
+
+    // Mettre à jour les éléments HTML de la lightbox avec les informations de l'image
+    $('.lightboxImage').attr('src', imageUrl);
+    $('.refLightbox').text(reference);
+    $('.catLightbox').text(category);
+
+    currentImageIndex = index; // Mettre à jour l'index de l'image actuellement affichée
+    $('.containerLightbox').show(); // Afficher la lightbox
+    updateImageUrls(); // Mettre à jour les URLs d'images
+}
+
+// Fonction pour mettre à jour les informations de l'image affichée
+function updateImageInfo() {
+    // Récupérer les informations de l'image à partir des éléments HTML
+    const reference = $('h2').text();
+    const category = $('.h3').text();
+
+    // Mettre à jour les éléments HTML appropriés avec les informations de l'image
+    $('.refLightbox').text(reference);
+    $('.catLightbox').text(category);
+}
+
+// Gestionnaire de clic pour la fermeture de la lightbox
+$('.closeLightbox').on('click', function () {
+    $('.containerLightbox').hide(); // Cacher la lightbox
+});
+
+// Gestionnaire de clic pour la flèche droite
+$('.rightArrow').on('click', function () {
+    if (currentImageIndex < imageUrls.length - 1) {
+        currentImageIndex++;
+        openLightbox(currentImageIndex); // Ouvrir la lightbox avec l'image suivante
+    }
+});
+
+// Gestionnaire de clic pour la flèche gauche
+$('.leftArrow').on('click', function () {
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+        openLightbox(currentImageIndex); // Ouvrir la lightbox avec l'image précédente
+    }
+});
+
+// Appel initial pour mettre à jour les URL d'images
+updateImageUrls();

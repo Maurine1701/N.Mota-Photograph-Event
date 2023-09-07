@@ -31,11 +31,11 @@
             z-index: 20;
 
             &.leftArrow {
-                left: 20px;
+                left: 70px;
             }
 
             &.rightArrow {
-                right: 20px;
+                right: 70px;
             }
         }
 
@@ -56,18 +56,19 @@
         }
 
         h5 {
-            margin-left: -300px;
-            margin-top: 2px;
+            margin-right: 975px;
+            margin-top: 10px;
         }
 
         h6 {
-            margin-top: 5px;
+            margin-top: -40px;
+            margin-left: 960px;
         }
     }
 
     .closeLightbox {
         position: absolute;
-        right: 195px;
+        right: 250px;
         top: 20px;
         cursor: pointer;
         width: 20px;
