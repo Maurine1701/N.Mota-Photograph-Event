@@ -225,87 +225,101 @@ jQuery(document).ready(function ($) {
 
 // gestion lightbox
 
-// Fonction pour mettre à jour la liste d'URLs d'images
+document.addEventListener("DOMContentLoaded", function () {
+    const lightboxContainer = document.querySelector(".containerLightbox");
+    const lightboxImage = lightboxContainer.querySelector(".lightbox-image");
+    const lightboxReference = lightboxContainer.querySelector(".reference");
+    const lightboxCategorie = lightboxContainer.querySelector(".categorie");
+    const lightboxClose = lightboxContainer.querySelector(".close");
+    const cataloguePhotosContainer = document.querySelector(".photoList");
+    const prevButton = lightboxContainer.querySelector(".previous");
+    const nextButton = lightboxContainer.querySelector(".next");
 
-const imageUrls = []; // Tableau pour stocker les URLs des images
-let currentImageIndex = 0; // On définit une variable currentImageIndex à 0 pour suivre l'index de l'image actuellement affichée.
+    // Vérifier si les éléments existent avant d'executer le code'
+    if (
+        lightboxContainer &&
+        lightboxImage &&
+        lightboxReference &&
+        lightboxCategorie &&
+        lightboxClose &&
+        cataloguePhotosContainer &&
+        prevButton &&
+        nextButton
+    ) {
+        // Obtenir tous les conteneurs des posts(images) du catalogue
+        const allPostContainers = Array.from(
+            cataloguePhotosContainer.querySelectorAll(".bloc-photo")
+        );
+        let currentImageIndex;
 
-function updateImageUrls() {
-    imageUrls.length = 0; // Réinitialise le tableau
+        function openLightbox(element) {
+            lightboxContainer.classList.add("open");
 
-    // Parcourir chaque élément ayant les classes .containerPhotoList ou .containerImg
-    $('.containerPhotoList, .containerImg').each(function () {
-        const imageUrl = $(this).find('img').attr('src'); // extraction de l'URL de l'image contenue à l'intérieur de cet élément
-        imageUrls.push(imageUrl); // Ajout de l'URL de l'image au tableau
-    });
-}
+            // Récupérer les attributs des éléments de l'image
+            const reference = element
+                .querySelector(".icon")
+                .getAttribute("data-reference");
+            const categorie = element
+                .querySelector(".icon")
+                .getAttribute("data-categorie");
+            const imageUrl = element
+                .querySelector(".icon")
+                .getAttribute("data-thumbnail-url");
 
+            // Mettre à jour les éléments de la Lightbox avec les valeurs récupérées
+            lightboxImage.src = imageUrl;
+            lightboxReference.textContent = reference;
+            lightboxCategorie.textContent = categorie;
 
+            // Récupérer l'index de l'image actuellement affichée
+            currentImageIndex = allPostContainers.indexOf(element);
+        }
 
-// ajout d'un événement au clic pour l'icône de plein écran
+        function showPrevImage() {
+            // Décrémenter l'index de l'image actuelle
+            currentImageIndex--;
+            // Si l'index devient inférieur à zéro, revenir à la dernière image du catalogue
+            if (currentImageIndex < 0) {
+                currentImageIndex = allPostContainers.length - 1;
+            }
+            // Récupérer le conteneur de l'image précédente
+            const prevImageContainer = allPostContainers[currentImageIndex];
+            // Afficher l'image précédente dans la Lightbox
+            openLightbox(prevImageContainer);
+        }
 
-$(document).on('click', '.iconFullscreen', function () {
-    // on recherche l'index de l'image cliquée dans le tableau imageUrls en utilisant la méthode indexOf
-    const clickedImageIndex = imageUrls.indexOf($(this).closest('.containerPhotoList, .containerImg').find('img').attr('src'));
+        function showNextImage() {
+            // Incrémenter l'index de l'image actuelle
+            currentImageIndex++;
 
-    // appelle la fonction openLightbox pour ouvrir la lightbox avec l'index de l'image cliquée
-    openLightbox(clickedImageIndex);
-});
+            // Si l'index dépasse la dernière image du catalogue, revenir à la première image
+            if (currentImageIndex >= allPostContainers.length) {
+                currentImageIndex = 0;
+            }
+            // Récupérer le conteneur de l'image suivante
+            const nextImageContainer = allPostContainers[currentImageIndex];
+            // Afficher l'image suivante dans la Lightbox
+            openLightbox(nextImageContainer);
+        }
 
+        // Ajouter un gestionnaire d'événement pour ouvrir la Lightbox lorsque l'utilisateur clique sur une icône d'image
+        cataloguePhotosContainer.addEventListener("click", function (event) {
+            if (event.target.closest(".icon")) {
+                event.preventDefault();
+                // Récupérer le conteneur de l'image correspondant à l'icône cliquée
+                const postContainer = event.target.closest(".bloc-photo");
+                // Afficher l'image dans la Lightbox
+                openLightbox(postContainer);
+            }
+        });
 
+        // Ajouter des gestionnaires d'événements pour les boutons "Prev" et "Next" de navigation
+        prevButton.addEventListener("click", showPrevImage);
+        nextButton.addEventListener("click", showNextImage);
 
-// Fonction pour ouvrir la lightbox avec l'index de l'image
-
-function openLightbox(index) {
-    const imageUrl = imageUrls[index];
-
-    // Trouver le conteneur correspondant à l'index
-    const container = $('.containerPhotoList').eq(index);
-
-    // Extraire la référence et la catégorie de l'image à partir des données de l'élément HTML
-    const reference = container.find('h2').data('reference');
-    const category = container.find('h3').data('categorie');
-
-    // Mettre à jour les éléments HTML de la lightbox avec les informations de l'image
-    $('.lightboxImage').attr('src', imageUrl);
-    $('.refLightbox').text(reference);
-    $('.catLightbox').text(category);
-
-    currentImageIndex = index; // Mettre à jour l'index de l'image actuellement affichée
-    $('.containerLightbox').show(); // Afficher la lightbox
-    updateImageUrls(); // Mettre à jour les URLs d'images
-}
-
-
-// Fonction pour mettre à jour les informations de l'image affichée
-
-function updateImageInfo() {
-    // Récupérer les informations de l'image à partir des éléments HTML
-    const reference = $('.hoverImg h2').text();
-    const category = $('.hoverImg h3').text();
-
-    // Mettre à jour les éléments HTML appropriés avec les informations de l'image
-    $('.refLightbox').text(reference);
-    $('.catLightbox').text(category);
-}
-
-// Gestionnaire de clic pour la fermeture de la lightbox
-$('.closeLightbox').on('click', function () {
-    $('.containerLightbox').hide(); // Cacher la lightbox
-});
-
-// Gestionnaire de clic pour la flèche droite
-$('.rightArrow').on('click', function () {
-    if (currentImageIndex < imageUrls.length - 1) {
-        currentImageIndex++;
-        openLightbox(currentImageIndex); // Ouvrir la lightbox avec l'image suivante
-    }
-});
-
-// Gestionnaire de clic pour la flèche gauche
-$('.leftArrow').on('click', function () {
-    if (currentImageIndex > 0) {
-        currentImageIndex--;
-        openLightbox(currentImageIndex); // Ouvrir la lightbox avec l'image précédente
+        // Ajouter un gestionnaire d'événement pour fermer la Lightbox lorsque l'utilisateur clique sur le bouton de fermeture
+        lightboxClose.addEventListener("click", function () {
+            lightboxContainer.classList.remove("open");
+        });
     }
 });

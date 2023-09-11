@@ -669,6 +669,10 @@ button a {
 .filter .selectFilter.active {
   border-radius: 8px 8px 0 0;
   border: 1px solid blue;
+  background-position: right 18px top;
+}
+.filter .selectFilter.active option:hover {
+  background-color: red !important;
 }
 .filter .selectCategory,
 .filter .selectFormat,
@@ -677,6 +681,11 @@ button a {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
+}
+.filter .selectCategory option:hover,
+.filter .selectFormat option:hover,
+.filter .selectDate option:hover {
+  background-color: red !important;
 }
 .filter .dateFilter {
   width: 300px;
@@ -811,14 +820,17 @@ button a {
             appearance: none !important;
   }
 }
-.blocPhoto {
+.bloc-photo {
+  width: 720px;
+  height: 655px;
+}
+.bloc-photo .blocPhoto {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
 }
-
-.hoverImg {
+.bloc-photo .hoverImg {
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
@@ -827,25 +839,25 @@ button a {
   height: 100%;
   opacity: 0;
 }
-.hoverImg:hover {
+.bloc-photo .hoverImg:hover {
   opacity: 1;
 }
-.hoverImg:hover .iconFullscreen {
-  width: 34px !important;
-  height: 34px !important;
+.bloc-photo .hoverImg:hover .iconFullscreen {
+  font-size: 24px;
+  color: white;
   position: absolute;
   top: 20px;
   right: 20px;
 }
-.hoverImg:hover .hoverEye {
-  width: 46px !important;
-  height: 31px !important;
+.bloc-photo .hoverImg:hover .hoverEye {
+  font-size: 32px;
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.hoverImg:hover h2 {
+.bloc-photo .hoverImg:hover h2 {
   position: absolute;
   left: 10px;
   top: 612px;
@@ -853,7 +865,7 @@ button a {
   font-family: "poppins";
   font-size: 14px;
 }
-.hoverImg:hover h3 {
+.bloc-photo .hoverImg:hover h3 {
   position: absolute;
   left: 640px;
   top: 612px;
@@ -884,72 +896,136 @@ button a {
 }
 .containerLightbox {
   position: fixed;
-  display: none;
-  width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 20;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.containerLightbox.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 .containerLightbox .fullscreenPhoto {
-  position: absolute;
   width: 80%;
   height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  text-align: center;
-  padding: 20px;
-  border-radius: 5px;
-}
-.containerLightbox .fullscreenPhoto .leftArrow,
-.containerLightbox .fullscreenPhoto .rightArrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  z-index: 20;
-}
-.containerLightbox .fullscreenPhoto .leftArrow.leftArrow,
-.containerLightbox .fullscreenPhoto .rightArrow.leftArrow {
-  left: 70px;
-}
-.containerLightbox .fullscreenPhoto .leftArrow.rightArrow,
-.containerLightbox .fullscreenPhoto .rightArrow.rightArrow {
-  right: 70px;
-}
-.containerLightbox .fullscreenPhoto .lightboxImage {
-  max-width: 100%;
-  max-height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin: 0 auto;
-}
-.containerLightbox .fullscreenPhoto h5,
-.containerLightbox .fullscreenPhoto h6 {
-  font-family: "Space Mono";
-  font-size: 14px;
-  font-weight: 400;
   text-transform: uppercase;
-  color: #ffffff;
+  font-size: 14px;
+  position: relative;
 }
-.containerLightbox .fullscreenPhoto h5 {
-  margin-right: 975px;
-  margin-top: 10px;
-}
-.containerLightbox .fullscreenPhoto h6 {
-  margin-top: -40px;
-  margin-left: 960px;
-}
-.containerLightbox .closeLightbox {
+.containerLightbox .fullscreenPhoto .reference {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   position: absolute;
-  right: 250px;
-  top: 20px;
+  bottom: 0;
+  left: 18.5em;
+}
+@media screen and (max-width: 465px) {
+  .containerLightbox .fullscreenPhoto .reference {
+    bottom: 4em;
+    left: 15em;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .containerLightbox .fullscreenPhoto .reference {
+    left: 6em;
+  }
+}
+.containerLightbox .fullscreenPhoto .categorie {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+  right: 18.5em;
+}
+@media screen and (max-width: 465px) {
+  .containerLightbox .fullscreenPhoto .categorie {
+    bottom: 4em;
+    right: 15em;
+  }
+}
+@media screen and (min-width: 465px) and (max-width: 1280px) {
+  .containerLightbox .fullscreenPhoto .categorie {
+    right: 6em;
+  }
+}
+.containerLightbox .close,
+.containerLightbox .previous,
+.containerLightbox .next {
+  position: absolute;
+  color: #fff;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  display: none;
+  text-transform: none;
+}
+.containerLightbox .close.close,
+.containerLightbox .previous.close,
+.containerLightbox .next.close {
+  top: 0;
+  right: 1em;
+}
+.containerLightbox .close.previous,
+.containerLightbox .previous.previous,
+.containerLightbox .next.previous {
+  left: 0;
+  font-size: 12px;
+  font-family: "Space Mono", monospace;
+}
+@media screen and (min-width: 1281px) {
+  .containerLightbox .close.previous,
+  .containerLightbox .previous.previous,
+  .containerLightbox .next.previous {
+    left: -5.5em;
+  }
+}
+.containerLightbox .close.next,
+.containerLightbox .previous.next,
+.containerLightbox .next.next {
+  right: 0;
+  font-size: 12px;
+  font-family: "Space Mono", monospace;
+}
+@media screen and (min-width: 1281px) {
+  .containerLightbox .close.next,
+  .containerLightbox .previous.next,
+  .containerLightbox .next.next {
+    right: -5.5em;
+  }
+}
+@media screen and (min-width: 465px) and (max-width: 1280px) {
+  .containerLightbox .close.next span, .containerLightbox .close.previous span,
+  .containerLightbox .previous.next span,
+  .containerLightbox .previous.previous span,
+  .containerLightbox .next.next span,
+  .containerLightbox .next.previous span {
+    display: none;
+  }
+}
+@media screen and (max-width: 465px) {
+  .containerLightbox .close.next, .containerLightbox .close.previous,
+  .containerLightbox .previous.next,
+  .containerLightbox .previous.previous,
+  .containerLightbox .next.next,
+  .containerLightbox .next.previous {
+    bottom: 0;
+  }
+}
+.containerLightbox.open .previous,
+.containerLightbox.open .next,
+.containerLightbox.open .close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }/*# sourceMappingURL=style.css.map */

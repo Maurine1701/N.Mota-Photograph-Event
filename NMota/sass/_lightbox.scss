@@ -1,77 +1,130 @@
 .containerLightbox {
     position: fixed;
-    display: none;
-    width: 100%;
-    height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.80);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
 
     .fullscreenPhoto {
-        position: absolute;
         width: 80%;
         height: 80%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fff;
-        text-align: center;
-        padding: 20px;
-        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 14px;
+        position: relative;
 
-        .leftArrow,
-        .rightArrow {
+        .reference {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            z-index: 20;
+            bottom: 0;
+            left: 18.5em;
 
-            &.leftArrow {
-                left: 70px;
+            @media screen and (max-width: 465px) {
+                bottom: 4em;
+                left: 15em;
             }
 
-            &.rightArrow {
-                right: 70px;
+            @media screen and (min-width: 466px) and (max-width: 1280px) {
+                left: 6em;
             }
+
         }
 
-        .lightboxImage {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-            margin: 0 auto;
-        }
-
-        h5,
-        h6 {
-            font-family: 'Space Mono';
-            font-size: 14px;
+        .categorie {
+            font-family: 'Space Mono', monospace;
             font-weight: 400;
-            text-transform: uppercase;
-            color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            right: 18.5em;
+
+            @media screen and (max-width: 465px) {
+                bottom: 4em;
+                right: 15em;
+            }
+
+            @media screen and (min-width: 465px) and (max-width: 1280px) {
+                right: 6em;
+            }
         }
 
-        h5 {
-            margin-right: 975px;
-            margin-top: 10px;
+    }
+
+    .close,
+    .previous,
+    .next {
+        position: absolute;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        text-transform: none;
+
+
+        &.close {
+
+            top: 0;
+            right: 1em;
         }
 
-        h6 {
-            margin-top: -40px;
-            margin-left: 960px;
+        &.previous {
+            left: 0;
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+
+            @media screen and (min-width: 1281px) {
+                left: -5.5em;
+            }
+        }
+
+        &.next {
+            right: 0;
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+
+            @media screen and (min-width: 1281px) {
+                right: -5.5em;
+            }
+        }
+
+        &.next,
+        &.previous {
+            span {
+                @media screen and (min-width: 465px) and (max-width: 1280px) {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 465px) {
+                bottom: 0;
+            }
         }
     }
 
-    .closeLightbox {
-        position: absolute;
-        right: 250px;
-        top: 20px;
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
+    &.open {
+
+        .previous,
+        .next,
+        .close {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
     }
 }

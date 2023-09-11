@@ -31,6 +31,14 @@ function JS_script() {
 add_action( 'wp_enqueue_scripts', 'JS_script' );
 
 
+function Fontawesome()
+{
+    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array());
+}
+add_action('wp_enqueue_scripts', 'Fontawesome');
+
+
+
 function create_photo_post_type() {
     register_post_type('photo', array(
         'public' => true,
