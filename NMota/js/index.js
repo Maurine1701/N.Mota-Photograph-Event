@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // on démarre la fonction après le chargement du dom
 jQuery(document).ready(function ($) {
-
     let page = 2;
     let loading = false;
 
@@ -88,9 +87,9 @@ jQuery(document).ready(function ($) {
     $('#loadMoreButton').click(function () {
         if (!loading) {
             loading = true;
-            // Charge + de photos en appelant la fonction loadMorePhotos avec le numéro de page actuel
+            // Charge plus de photos en appelant la fonction loadMorePhotos avec le numéro de page actuel
             loadMorePhotos(page);
-            page++; // et on Incrémente le numéro de page pour la prochaine fois
+            page++; // Incrémente le numéro de page pour la prochaine fois
         }
     });
 
@@ -99,15 +98,16 @@ jQuery(document).ready(function ($) {
             url: ajaxurl, // URL du script WordPress pour le traitement AJAX
             type: 'post',
             data: {
-                action: 'load_more_photos', // on appelle la fonction wordpress créer dans le fichier function
+                action: 'load_more_photos', // Appelle la fonction WordPress créée dans le fichier functions.php
                 page: page,
             },
             success: function (response) {
-                if (!response.trim()) {// on Vérifie si nous on a atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
-                    $('#loadMoreButton').hide(); // Cachez le bouton chargez plus
+                if (!response.trim()) { // Vérifie si nous avons atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
+                    $('#loadMoreButton').hide(); // Cachez le bouton "chargez plus"
                 } else {
                     // Ajoutez la réponse (nouvelles photos) à la fin de la liste existante
                     $('.photoList').append(response);
+
                     loading = false; // Marquez le chargement comme terminé
                 }
             }
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
         // Obtenir tous les conteneurs des posts(images) du catalogue
         const allPostContainers = Array.from(
-            cataloguePhotosContainer.querySelectorAll(".bloc-photo")
+            cataloguePhotosContainer.querySelectorAll(".bloc-photo, .bloc-photo-detail")
         );
         let currentImageIndex;
 
@@ -304,14 +304,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Ajouter un gestionnaire d'événement pour ouvrir la Lightbox lorsque l'utilisateur clique sur une icône d'image
         cataloguePhotosContainer.addEventListener("click", function (event) {
-            if (event.target.closest(".icon")) {
+            if (event.target.closest(".iconFullscreen")) {
                 event.preventDefault();
                 // Récupérer le conteneur de l'image correspondant à l'icône cliquée
-                const postContainer = event.target.closest(".bloc-photo");
+                const postContainer = event.target.closest(".bloc-photo, .bloc-photo-detail");
+                console.log("Clic détecté sur l'icône fullscreen");
                 // Afficher l'image dans la Lightbox
                 openLightbox(postContainer);
             }
         });
+
+
 
         // Ajouter des gestionnaires d'événements pour les boutons "Prev" et "Next" de navigation
         prevButton.addEventListener("click", showPrevImage);

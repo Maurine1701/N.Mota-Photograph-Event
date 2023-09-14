@@ -27,7 +27,14 @@
                 <p><?php echo 'ANNÉE: ' . $taxo_annee[0]->name . '<br>'; ?></p>
             </div>
         </div>
-        <img src="<?php echo $photo_url; ?>" alt="<?php the_title_attribute(); ?>"><br>
+        <div class="bloc-photo-detail">
+            <img class="blocPhoto" src="<?php echo $photo_url; ?>" alt="<?php the_title_attribute(); ?>">
+                <div class="hoverImg">
+                        <a class="icon" href="#" data-thumbnail-url="<?php echo $photo_url; ?>">
+                            <i class="fa fa-expand iconFullscreen"></i>
+                        </a>
+                </div>
+        </div>
     </div>
 
 

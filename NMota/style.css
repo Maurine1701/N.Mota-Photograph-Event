@@ -154,11 +154,11 @@ body {
     top: 125px !important;
   }
   nav.navigation.open {
-    margin-top: 627px !important;
+    margin-top: 670px !important;
     margin-right: -224px !important;
     background-color: #E00000 !important;
     z-index: 2;
-    height: 550px;
+    height: 600px;
     width: 600px;
   }
   nav.navigation ul {
@@ -421,6 +421,43 @@ body {
   font-size: 14px;
   text-transform: uppercase;
 }
+.containerPrincipalSingle .containerSingle .bloc-photo-detail {
+  width: 45%;
+  height: 100%;
+  position: relative;
+}
+.containerPrincipalSingle .containerSingle .bloc-photo-detail .blocPhoto {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 4px;
+}
+.containerPrincipalSingle .containerSingle .bloc-photo-detail .hoverImg {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.containerPrincipalSingle .containerSingle .bloc-photo-detail .hoverImg:hover {
+  opacity: 1;
+}
+.containerPrincipalSingle .containerSingle .bloc-photo-detail .hoverImg:hover .iconFullscreen {
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+@media screen and (max-width: 465px) {
+  .containerPrincipalSingle .containerSingle .bloc-photo-detail .hoverImg:hover .iconFullscreen {
+    font-size: 12px;
+  }
+}
 
 /* Partie navigation et contact */
 .contactBtn {
@@ -512,6 +549,7 @@ body {
 
 button a {
   text-decoration: none;
+  color: black;
 }
 
 /*Responsive pour les tablettes*/
@@ -671,9 +709,6 @@ button a {
   border: 1px solid blue;
   background-position: right 18px top;
 }
-.filter .selectFilter.active option:hover {
-  background-color: red !important;
-}
 .filter .selectCategory,
 .filter .selectFormat,
 .filter .selectDate {
@@ -682,10 +717,19 @@ button a {
   font-size: 14px;
   text-transform: uppercase;
 }
-.filter .selectCategory option:hover,
-.filter .selectFormat option:hover,
-.filter .selectDate option:hover {
+.filter .selectCategory select option:hover,
+.filter .selectFormat select option:hover,
+.filter .selectDate select option:hover {
   background-color: red !important;
+}
+.filter .selectCategory .select-items div:hover,
+.filter .selectCategory .select-items div:focus,
+.filter .selectFormat .select-items div:hover,
+.filter .selectFormat .select-items div:focus,
+.filter .selectDate .select-items div:hover,
+.filter .selectDate .select-items div:focus {
+  background-color: red !important;
+  outline: none;
 }
 .filter .dateFilter {
   width: 300px;
@@ -824,6 +868,18 @@ button a {
   width: 720px;
   height: 655px;
 }
+@media screen and (max-width: 465px) {
+  .bloc-photo {
+    width: 334px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .bloc-photo {
+    width: 334px;
+    height: 300px;
+  }
+}
 .bloc-photo .blocPhoto {
   -o-object-fit: cover;
      object-fit: cover;
@@ -849,6 +905,11 @@ button a {
   top: 20px;
   right: 20px;
 }
+@media screen and (max-width: 465px) {
+  .bloc-photo .hoverImg:hover .iconFullscreen {
+    font-size: 12px;
+  }
+}
 .bloc-photo .hoverImg:hover .hoverEye {
   font-size: 32px;
   color: white;
@@ -856,6 +917,11 @@ button a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 465px) {
+  .bloc-photo .hoverImg:hover .hoverEye {
+    font-size: 20px;
+  }
 }
 .bloc-photo .hoverImg:hover h2 {
   position: absolute;
@@ -865,6 +931,12 @@ button a {
   font-family: "poppins";
   font-size: 14px;
 }
+@media screen and (max-width: 465px) {
+  .bloc-photo .hoverImg:hover h2 {
+    top: 265px;
+    font-size: 12px;
+  }
+}
 .bloc-photo .hoverImg:hover h3 {
   position: absolute;
   left: 640px;
@@ -873,27 +945,14 @@ button a {
   font-family: "poppins";
   font-size: 14px;
 }
-
-/* Responsive Mobile */
-@media (max-width: 600px) {
-  .hoverImg:hover .iconFullscreen {
-    width: 20px !important;
-    height: 20px !important;
-  }
-  .hoverImg:hover .hoverEye {
-    width: 23px !important;
-    height: 15px !important;
-  }
-  .hoverImg:hover h2 {
-    top: 265px;
-    font-size: 12px;
-  }
-  .hoverImg:hover h3 {
+@media screen and (max-width: 465px) {
+  .bloc-photo .hoverImg:hover h3 {
     left: 265px;
     top: 265px;
     font-size: 12px;
   }
 }
+
 .containerLightbox {
   position: fixed;
   top: 0;
@@ -924,6 +983,16 @@ button a {
   font-size: 14px;
   position: relative;
 }
+@media screen and (max-width: 465px) {
+  .containerLightbox .fullscreenPhoto img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .containerLightbox .fullscreenPhoto img {
+    width: 100%;
+  }
+}
 .containerLightbox .fullscreenPhoto .reference {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -933,13 +1002,14 @@ button a {
 }
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto .reference {
-    bottom: 4em;
-    left: 15em;
+    margin-bottom: 165px;
+    margin-left: -57px;
   }
 }
 @media screen and (min-width: 466px) and (max-width: 1280px) {
   .containerLightbox .fullscreenPhoto .reference {
-    left: 6em;
+    left: 2px;
+    top: 600px;
   }
 }
 .containerLightbox .fullscreenPhoto .categorie {
@@ -951,13 +1021,14 @@ button a {
 }
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto .categorie {
-    bottom: 4em;
-    right: 15em;
+    margin-left: -317px;
+    margin-bottom: 165px;
   }
 }
 @media screen and (min-width: 465px) and (max-width: 1280px) {
   .containerLightbox .fullscreenPhoto .categorie {
-    right: 6em;
+    right: 6px;
+    top: 600px;
   }
 }
 .containerLightbox .close,
@@ -982,11 +1053,11 @@ button a {
   font-size: 12px;
   font-family: "Space Mono", monospace;
 }
-@media screen and (min-width: 1281px) {
+@media screen and (min-width: 465px) and (max-width: 1280px) {
   .containerLightbox .close.previous,
   .containerLightbox .previous.previous,
   .containerLightbox .next.previous {
-    left: -5.5em;
+    left: -50px;
   }
 }
 .containerLightbox .close.next,
@@ -996,11 +1067,11 @@ button a {
   font-size: 12px;
   font-family: "Space Mono", monospace;
 }
-@media screen and (min-width: 1281px) {
+@media screen and (min-width: 465px) and (max-width: 1280px) {
   .containerLightbox .close.next,
   .containerLightbox .previous.next,
   .containerLightbox .next.next {
-    right: -5.5em;
+    right: -50px;
   }
 }
 @media screen and (min-width: 465px) and (max-width: 1280px) {

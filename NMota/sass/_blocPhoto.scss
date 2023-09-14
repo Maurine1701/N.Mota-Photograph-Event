@@ -2,6 +2,16 @@
     width: 720px;
     height: 655px;
 
+    @media screen and (max-width: 465px) {
+        width: 334px;
+        height: 300px;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        width: 334px;
+        height: 300px;
+    }
+
     .blocPhoto {
         object-fit: cover;
         width: 100%;
@@ -27,6 +37,10 @@
                 position: absolute;
                 top: 20px;
                 right: 20px;
+
+                @media screen and (max-width: 465px) {
+                    font-size: 12px;
+                }
             }
 
             .hoverEye {
@@ -36,6 +50,10 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+
+                @media screen and (max-width: 465px) {
+                    font-size: 20px;
+                }
             }
 
             h2 {
@@ -45,6 +63,11 @@
                 color: white;
                 font-family: 'poppins';
                 font-size: 14px;
+
+                @media screen and (max-width: 465px) {
+                    top: 265px;
+                    font-size: 12px;
+                }
             }
 
             h3 {
@@ -54,36 +77,12 @@
                 color: white;
                 font-family: 'poppins';
                 font-size: 14px;
-            }
-        }
-    }
-}
 
-/* Responsive Mobile */
-
-@media (max-width: 600px) {
-
-    .hoverImg {
-        &:hover {
-            .iconFullscreen {
-                width: 20px !important;
-                height: 20px !important;
-            }
-
-            .hoverEye {
-                width: 23px !important;
-                height: 15px !important;
-            }
-
-            h2 {
-                top: 265px;
-                font-size: 12px;
-            }
-
-            h3 {
-                left: 265px;
-                top: 265px;
-                font-size: 12px;
+                @media screen and (max-width: 465px) {
+                    left: 265px;
+                    top: 265px;
+                    font-size: 12px;
+                }
             }
         }
     }

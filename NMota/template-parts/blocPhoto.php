@@ -14,7 +14,7 @@ $categorie_name = $categories[0]->name;
         <h2><?php echo $reference; ?></h2>
         <h3><?php echo $categorie_name; ?></h3>
         <div>
-            <a href="<?php echo $post_url; ?>">
+            <a href="<?php echo get_permalink(); ?>">
                 <i class="fa fa-eye hoverEye"></i>
             </a>
         </div>

@@ -73,11 +73,8 @@
             border-radius: 8px 8px 0 0;
             border: 1px solid blue;
             background-position: right 18px top;
-
-            & option:hover {
-                background-color: red !important;
-            }
         }
+
     }
 
     .selectCategory,
@@ -88,8 +85,14 @@
         font-size: 14px;
         text-transform: uppercase;
 
-        & option:hover {
+        & select option:hover {
             background-color: red !important;
+        }
+
+        .select-items div:hover,
+        .select-items div:focus {
+            background-color: red !important;
+            outline: none;
         }
     }
 
