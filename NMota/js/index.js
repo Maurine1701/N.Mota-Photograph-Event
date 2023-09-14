@@ -231,24 +231,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightboxReference = lightboxContainer.querySelector(".reference");
     const lightboxCategorie = lightboxContainer.querySelector(".categorie");
     const lightboxClose = lightboxContainer.querySelector(".close");
-    const cataloguePhotosContainer = document.querySelector(".photoList");
+    const cataloguePhotosContainers = document.querySelectorAll(".photoList, .containerPrincipalSingle");
     const prevButton = lightboxContainer.querySelector(".previous");
     const nextButton = lightboxContainer.querySelector(".next");
 
-    // Vérifier si les éléments existent avant d'executer le code'
+    // Vérifier si les éléments existent avant d'exécuter le code
     if (
         lightboxContainer &&
         lightboxImage &&
         lightboxReference &&
         lightboxCategorie &&
         lightboxClose &&
-        cataloguePhotosContainer &&
+        cataloguePhotosContainers.length > 0 &&
         prevButton &&
         nextButton
     ) {
         // Obtenir tous les conteneurs des posts(images) du catalogue
         const allPostContainers = Array.from(
-            cataloguePhotosContainer.querySelectorAll(".bloc-photo, .bloc-photo-detail")
+            document.querySelectorAll(".bloc-photo, .bloc-photo-detail")
         );
         let currentImageIndex;
 
@@ -303,18 +303,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Ajouter un gestionnaire d'événement pour ouvrir la Lightbox lorsque l'utilisateur clique sur une icône d'image
-        cataloguePhotosContainer.addEventListener("click", function (event) {
-            if (event.target.closest(".iconFullscreen")) {
-                event.preventDefault();
-                // Récupérer le conteneur de l'image correspondant à l'icône cliquée
-                const postContainer = event.target.closest(".bloc-photo, .bloc-photo-detail");
-                console.log("Clic détecté sur l'icône fullscreen");
-                // Afficher l'image dans la Lightbox
-                openLightbox(postContainer);
-            }
+        cataloguePhotosContainers.forEach((container) => {
+            container.addEventListener("click", function (event) {
+                if (event.target.closest(".iconFullscreen")) {
+                    event.preventDefault();
+                    // Récupérer le conteneur de l'image correspondant à l'icône cliquée
+                    const postContainer = event.target.closest(".bloc-photo, .bloc-photo-detail");
+                    console.log("Clic détecté sur l'icône fullscreen");
+                    // Afficher l'image dans la Lightbox
+                    openLightbox(postContainer);
+                }
+            });
         });
-
-
 
         // Ajouter des gestionnaires d'événements pour les boutons "Prev" et "Next" de navigation
         prevButton.addEventListener("click", showPrevImage);
