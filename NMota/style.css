@@ -529,10 +529,20 @@ body {
   margin-bottom: 50px;
   position: relative;
 }
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .containerPrincipalImg .containerImg {
+    height: 300px;
+  }
+}
 
 .imgAppTitle {
   margin: -20px 0px 60px;
   text-transform: uppercase;
+}
+@media screen and (max-width: 465px) {
+  .imgAppTitle {
+    margin-left: 30px;
+  }
 }
 
 .buttonAllPhoto {
@@ -542,6 +552,11 @@ body {
   background-color: #d8d8d8;
   margin: 0 auto;
   margin-bottom: 50px;
+}
+@media screen and (max-width: 465px) {
+  .buttonAllPhoto {
+    margin-top: -320px;
+  }
 }
 .buttonAllPhoto:hover {
   background-color: #c9c9c9;
@@ -867,11 +882,13 @@ button a {
 .bloc-photo {
   width: 720px;
   height: 655px;
+  position: relative;
 }
 @media screen and (max-width: 465px) {
   .bloc-photo {
     width: 334px;
     height: 300px;
+    margin-top: -325px;
   }
 }
 @media screen and (min-width: 466px) and (max-width: 1280px) {
@@ -983,6 +1000,12 @@ button a {
   font-size: 14px;
   position: relative;
 }
+.containerLightbox .fullscreenPhoto img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+}
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto img {
     width: 100%;
@@ -997,8 +1020,8 @@ button a {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   position: absolute;
-  bottom: 0;
-  left: 18.5em;
+  bottom: -20px;
+  left: 230px;
 }
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto .reference {
@@ -1016,8 +1039,8 @@ button a {
   font-family: "Space Mono", monospace;
   font-weight: 400;
   position: absolute;
-  bottom: 0;
-  right: 18.5em;
+  bottom: -20px;
+  right: 230px;
 }
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto .categorie {

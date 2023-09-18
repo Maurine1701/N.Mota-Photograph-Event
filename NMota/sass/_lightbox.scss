@@ -31,6 +31,10 @@
 
         img {
 
+            width: 100%;
+            object-fit: contain;
+            height: 100%;
+
             @media screen and (max-width: 465px) {
                 width: 100%;
             }
@@ -45,8 +49,8 @@
             font-family: "Poppins", sans-serif;
             font-weight: 500;
             position: absolute;
-            bottom: 0;
-            left: 18.5em;
+            bottom: -20px;
+            left: 230px;
 
             @media screen and (max-width: 465px) {
                 margin-bottom: 165px;
@@ -64,8 +68,8 @@
             font-family: 'Space Mono', monospace;
             font-weight: 400;
             position: absolute;
-            bottom: 0;
-            right: 18.5em;
+            bottom: -20px;
+            right: 230px;
 
             @media screen and (max-width: 465px) {
                 margin-left: -317px;

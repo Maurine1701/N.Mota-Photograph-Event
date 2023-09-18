@@ -181,12 +181,22 @@
         overflow: hidden;
         margin-bottom: 50px;
         position: relative;
+
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            height: 300px;
+        }
+
     }
 }
 
 .imgAppTitle {
     margin: -20px 0px 60px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 465px) {
+        margin-left: 30px;
+    }
+
 }
 
 .buttonAllPhoto {
@@ -196,6 +206,11 @@
     background-color: #d8d8d8;
     margin: 0 auto;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 465px) {
+        margin-top: -320px;
+    }
+
 
     &:hover {
         background-color: #c9c9c9;
