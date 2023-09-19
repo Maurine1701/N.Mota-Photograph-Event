@@ -36,6 +36,16 @@
 
 @media (max-width: 1024px) {
 
+
+    .header ul li a {
+        color: white;
+        font-size: 54px;
+    }
+
+    .header ul li {
+        margin-bottom: 40px;
+    }
+
     .logo {
         margin-left: 0px !important;
 
@@ -103,8 +113,11 @@
             visibility: visible;
             animation: menuFadein 1s ease-in-out;
             width: 100%;
-            margin-top: 265px;
+            height: 900px;
+            margin-top: 975px;
             margin-left: -401px;
+            z-index: 1;
+            background-color: #E00000;
 
             @keyframes menuFadein {
                 0% {
@@ -114,6 +127,10 @@
                 100% {
                     opacity: 1;
                 }
+            }
+
+            #menu-header {
+                margin-top: 150px;
             }
         }
 
@@ -140,7 +157,6 @@
     .header ul li a {
         color: white;
         font-size: 44px;
-        margin-bottom: 30px;
     }
 
     .header ul li {

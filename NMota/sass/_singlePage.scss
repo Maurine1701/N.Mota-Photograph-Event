@@ -5,6 +5,18 @@
     margin-left: 216px;
     margin-right: 216px;
 
+    @media screen and (max-width: 465px) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        margin-left: 115px;
+        margin-right: 115px;
+    }
+
+
+
 
     /* Détails des photos */
 
@@ -13,6 +25,12 @@
         justify-content: space-between;
         align-items: flex-end;
         margin-top: 50px;
+
+        @media screen and (max-width: 465px) {
+            align-items: center;
+            margin-top: 75px;
+        }
+
 
         img {
             width: 45%;
@@ -26,6 +44,14 @@
             border-bottom: solid black 1px;
             padding-bottom: 40px;
 
+            @media screen and (max-width: 465px) {
+                margin-left: 60px;
+                border-bottom: none;
+                margin-top: 425px;
+            }
+
+
+
 
             h2 {
                 font-family: 'space-mono-regular', sans-serif;
@@ -35,20 +61,52 @@
                 line-height: 58px;
                 text-transform: uppercase;
                 width: 420px;
+
+                @media screen and (max-width: 465px) {
+                    font-size: 40px;
+                    line-height: 48px;
+                    width: 262px;
+                    margin-top: -60px;
+                }
+
+                @media screen and (min-width: 466px) and (max-width: 1280px) {
+                    font-size: 50px;
+                    width: 290px;
+                }
             }
 
-            p {
-                font-size: 14px;
-                text-transform: uppercase;
+            .infosPhoto {
 
+                @media screen and (max-width: 465px) {
+                    margin-top: 205px;
+                }
+
+                p {
+                    font-size: 14px;
+                    text-transform: uppercase;
+
+                    @media screen and (max-width: 465px) {
+                        margin-bottom: 10px;
+                        width: 400px;
+                    }
+
+                }
             }
-
         }
 
         .bloc-photo-detail {
-            width: 45%;
+            width: 49%;
             height: 100%;
             position: relative;
+            margin-bottom: -2px;
+
+            @media screen and (max-width: 465px) {
+                position: absolute;
+                left: 58px;
+                width: 70%;
+                top: 100px;
+                height: 400px;
+            }
 
             .blocPhoto {
                 object-fit: cover;
@@ -98,15 +156,31 @@
     display: flex;
     align-items: center;
 
+    @media screen and (max-width: 465px) {
+        border-top: solid black 1px;
+        margin-top: 20px;
+    }
+
     .containerContact {
         display: flex;
         align-items: center;
         margin-bottom: 30px;
         margin-top: 30px;
 
+        @media screen and (max-width: 465px) {
+            margin-top: 90px;
+            flex-direction: column;
+        }
+
 
         p {
             margin-right: 100px;
+
+            @media screen and (max-width: 465px) {
+                margin-right: -2px;
+                font-size: 13px !important;
+                word-spacing: -2px;
+            }
         }
 
         button {
@@ -114,6 +188,16 @@
             height: 50px;
             border: none;
             background-color: #d8d8d8;
+
+            @media screen and (max-width: 465px) {
+                width: 285px;
+                margin-left: 55px;
+            }
+
+            @media screen and (min-width: 466px) and (max-width: 1280px) {
+                width: 130px;
+                margin-left: -75px;
+            }
         }
 
         button:hover {
@@ -124,6 +208,10 @@
 
     .navigationArrows {
         margin-left: auto;
+
+        @media screen and (max-width: 465px) {
+            display: none;
+        }
 
 
         .containerImgArrows {
@@ -172,6 +260,17 @@
     display: flex;
     justify-content: space-between;
 
+    @media screen and (max-width: 465px) {
+        flex-direction: column;
+        margin: auto;
+        margin-bottom: 200px;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        flex-direction: column;
+        margin: auto;
+    }
+
     .containerImg {
         display: flex;
         align-items: center;
@@ -182,8 +281,14 @@
         margin-bottom: 50px;
         position: relative;
 
+        @media screen and (max-width: 465px) {
+            height: 295px;
+            width: 317px;
+        }
+
         @media screen and (min-width: 466px) and (max-width: 1280px) {
             height: 300px;
+            width: 300px;
         }
 
     }
@@ -194,7 +299,13 @@
     text-transform: uppercase;
 
     @media screen and (max-width: 465px) {
-        margin-left: 30px;
+        margin-left: 95px;
+        margin-bottom: 30px;
+        word-spacing: 5px;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        margin: -65px 0px 35px;
     }
 
 }
@@ -221,144 +332,5 @@ button {
     a {
         text-decoration: none;
         color: black;
-    }
-}
-
-
-
-/*Responsive pour les tablettes*/
-
-@media (min-width: 601px) and (max-width: 1024px) {
-
-    .containerPrincipalSingle {
-        margin-left: 115px;
-        margin-right: 115px;
-
-        .containerSingle {
-            .detailsPhoto {
-                h2 {
-                    font-size: 50px;
-                    width: 290px;
-                }
-            }
-        }
-
-        .contactBtn {
-            .containerContact {
-                button {
-                    width: 130px;
-                    margin-left: -75px;
-                }
-            }
-        }
-
-
-        .containerPrincipalImg {
-            .imgAppTitle {
-                margin: -65px 0px 35px;
-            }
-
-            .containerImgApp {
-                flex-direction: column;
-
-                .imgAppOnly {
-                    width: 545px;
-                    height: 380px;
-                }
-            }
-        }
-    }
-}
-
-
-
-/*Responsive pour les mobiles*/
-
-@media (max-width: 600px) {
-
-    .containerPrincipalSingle {
-        margin-left: 0px;
-        margin-right: 0px;
-
-
-        .containerSingle {
-
-            img {
-                width: 70%;
-                margin-bottom: 305px;
-                margin-left: -253px;
-                margin-top: -25px;
-            }
-
-            .detailsPhoto {
-                margin-left: 55px;
-                border-bottom: none;
-
-                h2 {
-                    font-size: 46px;
-                    line-height: 48px;
-                    width: 262px;
-                    margin-top: -60px;
-                }
-
-                .infosPhoto {
-                    margin-top: 205px;
-
-                    p {
-                        margin-bottom: 10px;
-                    }
-                }
-            }
-        }
-
-
-        .contactBtn {
-            border-top: solid black 1px;
-            margin-top: 20px;
-
-            .containerContact {
-                margin-top: 90px;
-                flex-direction: column;
-
-                button {
-                    width: 270px;
-                    margin-left: 55px;
-                }
-
-                p {
-                    margin-right: -2px;
-                    font-size: 13px !important;
-                    word-spacing: -2px;
-
-                }
-            }
-
-            .navigationArrows {
-                display: none;
-            }
-        }
-
-        .containerPrincipalImg {
-
-            .imgAppTitle {
-                margin-left: 100px;
-                margin-bottom: 30px;
-                word-spacing: 5px;
-            }
-
-            .containerImgApp {
-                flex-direction: column;
-
-                .imgAppOnly {
-                    width: 315px;
-                    height: 280px;
-                    margin-bottom: 25px;
-                }
-            }
-
-            .buttonAllPhoto {
-                display: none;
-            }
-        }
     }
 }
