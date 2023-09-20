@@ -9,6 +9,16 @@
     align-items: center;
     justify-content: center;
 
+    @media screen and (max-width: 465px) {
+        height: 253px;
+        margin-bottom: -60px;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        height: 450px;
+        margin-bottom: -60px;
+    }
+
     .imgHero {
         object-fit: cover;
         width: 100%;
@@ -27,6 +37,17 @@
         text-transform: uppercase;
         -webkit-text-stroke: 2px white;
         -webkit-text-fill-color: transparent;
+
+        @media screen and (max-width: 465px) {
+            font-size: 28px;
+            -webkit-text-stroke: 1px white;
+            z-index: 1;
+        }
+
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            font-size: 48px;
+        }
+
     }
 }
 
@@ -39,11 +60,31 @@
     margin-top: 100px;
     margin-bottom: -100px;
 
+    @media screen and (max-width: 465px) {
+        margin-bottom: -110px;
+        margin-left: -190px;
+        overflow-x: auto;
+    }
+
+    @media screen and (min-width: 466px) and (max-width: 1280px) {
+        margin-bottom: -110px;
+        margin-left: -190px;
+        overflow-x: auto;
+    }
+
+
     .filterLeft {
         display: flex;
         width: 720px;
         margin-left: 217px;
         gap: 160px;
+
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            gap: 122px;
+            margin-right: -19px;
+            margin-left: 225px;
+        }
+
 
         .categoryFilter {
             width: 260px;
@@ -53,6 +94,15 @@
         .formatFilter {
             width: 260px;
             height: 43px;
+
+            @media screen and (max-width: 465px) {
+                margin-left: -140px;
+            }
+
+            @media screen and (min-width: 466px) and (max-width: 1280px) {
+                margin-left: -140px;
+            }
+
         }
     }
 
@@ -69,10 +119,12 @@
         appearance: none;
         outline: none;
 
-        &.active {
-            border-radius: 8px 8px 0 0;
-            border: 1px solid blue;
-            background-position: right 18px top;
+        @media screen and (max-width: 465px) {
+            width: 270px;
+        }
+
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            width: 215px;
         }
 
     }
@@ -85,15 +137,14 @@
         font-size: 14px;
         text-transform: uppercase;
 
-        & select option:hover {
-            background-color: red !important;
+        @media screen and (max-width: 465px) {
+            font-size: 12px;
         }
 
-        .select-items div:hover,
-        .select-items div:focus {
-            background-color: red !important;
-            outline: none;
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            font-size: 12px;
         }
+
     }
 
 
@@ -115,7 +166,6 @@
     flex-wrap: wrap;
     justify-content: center;
 
-
     .containerPhotoList {
         display: flex;
         align-items: center;
@@ -126,6 +176,17 @@
         margin-left: 15px;
         margin-bottom: 30px;
         position: relative;
+
+        @media screen and (max-width: 465px) {
+            width: 335px;
+            height: 300px;
+        }
+
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
+            width: 335px;
+            height: 300px;
+        }
+
     }
 }
 
@@ -140,131 +201,16 @@
         border: none;
         background-color: #d8d8d8;
         margin: auto;
-    }
-}
 
-
-/* Responsive tablette */
-
-@media (min-width: 601px) and (max-width: 1024px) {
-
-    .containerHero {
-        height: 450px;
-        margin-bottom: -60px;
-
-        .titreHero {
-            font-size: 48px;
-        }
-    }
-
-    .photoList {
-
-        .containerPhotoList {
-            width: 335px;
-            height: 300px;
-        }
-    }
-
-    #loadMoreContainer {
-        #loadMoreButton {
+        @media screen and (max-width: 465px) {
             margin-top: -30px;
             margin-bottom: -30px;
         }
-    }
 
-    .filter {
-        margin-bottom: -110px;
-        margin-left: -190px;
-        overflow-x: auto;
-
-        .filterLeft {
-            gap: 122px;
-            margin-right: -19px;
-            margin-left: 225px;
-
-            .formatFilter {
-                margin-left: -140px;
-            }
-        }
-
-        .selectFilter {
-            width: 215px;
-
-        }
-
-        .selectCategory,
-        .selectFormat,
-        .selectDate {
-            font-size: 12px;
-
-            option {
-                font-size: 8px !important;
-                padding: 5px 2px 1px !important;
-                appearance: none !important;
-            }
-
-        }
-    }
-}
-
-
-/* Responsive Mobile */
-
-@media (max-width: 600px) {
-    .containerHero {
-        height: 253px;
-        margin-bottom: -60px;
-
-
-        .titreHero {
-            font-size: 28px;
-            -webkit-text-stroke: 1px white;
-            z-index: 1;
-        }
-    }
-
-    .photoList {
-
-        .containerPhotoList {
-            width: 335px;
-            height: 300px;
-        }
-    }
-
-    #loadMoreContainer {
-        #loadMoreButton {
+        @media screen and (min-width: 466px) and (max-width: 1280px) {
             margin-top: -30px;
             margin-bottom: -30px;
         }
-    }
 
-    .filter {
-        margin-bottom: -110px;
-        margin-left: -190px;
-        overflow-x: auto;
-
-        .filterLeft {
-
-            .formatFilter {
-                margin-left: -140px;
-            }
-        }
-
-        .selectFilter {
-            width: 270px;
-        }
-
-        .selectCategory,
-        .selectFormat,
-        .selectDate {
-            font-size: 12px;
-
-            option {
-                font-size: 8px !important;
-                padding: 5px 2px 1px !important;
-                appearance: none !important;
-            }
-
-        }
     }
 }

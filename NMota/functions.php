@@ -38,7 +38,7 @@ add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
 // charge le fichier Javascript
 
 function JS_script() {
-    wp_enqueue_script( 'scriptJs', get_template_directory_uri() . ' /js/index.js', array ('jquery'), '1.0', true );
+    wp_enqueue_script( 'scriptJs', get_template_directory_uri() . ' /js/index.js', array ('jquery'), '1.0');
 }
 
 add_action( 'wp_enqueue_scripts', 'JS_script' );
@@ -110,7 +110,7 @@ if ($photo_query->have_posts()) :
     // Réinitialise les données de la requête WP_Query pour éviter les conflits avec d'autres boucles
     wp_reset_postdata();
 else :
-    // Si aucune publication n'a été trouvée dans la requête, affiche un contenu par défaut (éventuellement vide)
+    // Si aucune publication n'a été trouvée dans la requête, affiche un contenu par défaut
     echo '';
 endif;
 
@@ -137,15 +137,15 @@ function filter_photos() {
         'posts_per_page' => -1,     // Nombre de photos par page (-1 pour toutes les photos)
         'orderby' => 'date',        // Tri par date
         'order' => 'ASC',          // Tri dans l'ordre décroissant (du plus récent au plus ancien)
-        'tax_query' => array(),     // Initialisation d'une tax_query vide pour les filtres taxonomiques
+        'tax_query' => array(),     // Initialisation d'une tax_query pour les filtres taxonomiques
     );
 
     // Ajoute des taxonomiques si des filtres sont définis
-    if (!empty($category)) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'categorie',
-            'field'    => 'name',
-            'terms'    => $category,
+    if (!empty($category)) { // vérifie si la variable $category n'est pas vide
+        $args['tax_query'][] = array( // récupére et stocke dans le tableau que les articles qui appartiennent à la variable $category
+            'taxonomy' => 'categorie', //  spécifie la taxonomie sur laquelle on applique le filtre
+            'field'    => 'name', // recherche de la catégorie par son nom
+            'terms'    => $category, // spécifie les termes que vous souhaitez rechercher, ici ceux de la variable category
         );
     }
 
@@ -158,7 +158,6 @@ function filter_photos() {
     }
 
     if (!empty($date)) {
-        // Logique pour trier par date
         if ($date === 'old') {
             $args['orderby'] = 'date';  // Tri par date dans l'ordre croissant (plus ancien d'abord)
             $args['order'] = 'ASC';

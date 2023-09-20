@@ -34,7 +34,7 @@
 
 /*Responsive pour les tablettes*/
 
-@media (max-width: 1024px) {
+@media screen and (min-width: 466px) and (max-width: 1280px) {
 
 
     .header ul li a {
@@ -53,6 +53,8 @@
             margin-left: 185px;
         }
     }
+
+    // création menu burger
 
     .burgerBtn {
         cursor: pointer;
@@ -152,7 +154,7 @@
 
 /*Responsive pour les mobiles*/
 
-@media (max-width: 600px) {
+@media screen and (max-width: 465px) {
 
     .header ul li a {
         color: white;

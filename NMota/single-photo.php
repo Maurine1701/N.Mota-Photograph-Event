@@ -9,11 +9,12 @@ get_header();
 
 <?php
 
-// Requête pour récupérer l'article du custom post type "photo" avec l'ID actuel
+// récupére l'article du custom post type "photo" avec l'ID actuel dans un tableau
 $args = array(
     'post_type' => 'photo', // Le custom post type "photos"
     'p' =>get_the_ID(), // Afficher uniquement un article
 );
+
 
 $photo_query = new WP_Query($args);
 

@@ -12,21 +12,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuBurger = document.querySelector('.burgerBtn');
     const referencePhotoField = document.getElementById('reference'); // Champ de formulaire de référence
 
+
+
+
     // Fonction pour ouvrir la modale
     function openModale() {
         modaleOverlay.classList.add('open');
     }
+
+
+
 
     // Fonction pour fermer la modale
     function closeModale() {
         modaleOverlay.classList.remove('open');
     }
 
+
+
+
     // Vérification de l'existence des éléments avant d'ajouter des écouteurs d'événements
     if (contactLink && modaleOverlay) {
         // Ajout d'un écouteur pour le clic sur le lien de contact
         contactLink.addEventListener('click', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // empêche le comportement par défaut
             openModale(); // Appel de la fonction pour ouvrir la modale
         });
     }
@@ -38,14 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
             openModale(); // Appel de la fonction pour ouvrir la modale
 
             // Remplissage du champ de référence
+            // Récupère la valeur de l'attribut "data-reference" du bouton de contact
             const referenceValue = contactButton.dataset.reference;
+
+            // Vérifie si la valeur récupérée existe (n'est pas null ou undefined)
             if (referenceValue) {
+                // Si la valeur existe, assigne cette valeur au champ de formulaire avec l'ID "referencePhotoField"
                 referencePhotoField.value = referenceValue;
             }
+
         });
     }
 
-    // Ajout d'un écouteur pour les clics sur l'ensemble du document
+
+
+
+    // Ajout d'un écouteur pour les clics sur l'ensemble du document pour pouvoir fermer la modale en cliquant hors de la modale
     document.addEventListener('click', function (event) {
         // Si l'événement provient de la modale, du lien de contact ou du menu burger, ne rien faire
         if (modaleContact && (modaleContact.contains(event.target) || (contactLink && contactLink.contains(event.target)) || (contactButton && contactButton.contains(event.target)) || menuBurger.contains(event.target))) {
@@ -58,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+
+
 /* Responsive : Menu burger pour mobile */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -67,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajout d'un écouteur d'événement click au bouton de menu burger
     menuBurger.addEventListener('click', function () {
-        // Ajout de la classe 'active' pour animer le bouton de menu burger
+        // Ajout de la classe 'active' sur le bouton de menu burger pour ouvrir
         menuBurger.classList.toggle('active');
 
         // Ajout de la classe 'open' pour afficher ou masquer le menu fullscreen
@@ -76,16 +97,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+
+
 /* Création de la pagination ajax */
+
 
 // on démarre la fonction après le chargement du dom
 jQuery(document).ready(function ($) {
-    let page = 2;
-    let loading = false;
+
+    // initialisation des variable
+    let page = 2; //deuxieme page 
+    let loading = false; //chargement n'est pas en cours
 
     // Ajout d'un gestionnaire de clic sur le bouton "chargez plus"
     $('#loadMoreButton').click(function () {
-        if (!loading) {
+        if (!loading) { // vérifie si la variable loading est définie comme false et on la bascule en true (chargement en cours)
             loading = true;
             // Charge plus de photos en appelant la fonction loadMorePhotos avec le numéro de page actuel
             loadMorePhotos(page);
@@ -93,22 +121,28 @@ jQuery(document).ready(function ($) {
         }
     });
 
+
     function loadMorePhotos(page) {
+        // Effectue une requête AJAX vers le script WordPress de traitement
         $.ajax({
             url: ajaxurl, // URL du script WordPress pour le traitement AJAX
-            type: 'post',
+            type: 'post', // Type de requête POST
             data: {
-                action: 'load_more_photos', // Appelle la fonction WordPress créée dans le fichier functions.php
-                page: page,
+                action: 'load_more_photos', // Action WordPress définie dans le fichier functions.php
+                page: page, // Numéro de page pour obtenir les photos suivantes
             },
             success: function (response) {
-                if (!response.trim()) { // Vérifie si nous avons atteint la fin des photos et que la réponse obtenue de l'AJAX est vide
+                // La fonction de rappel en cas de succès
+                if (!response.trim()) {
+                    // Si la réponse est vide, cela signifie que nous avons atteint la fin des photos
                     $('#loadMoreButton').hide(); // Cachez le bouton "chargez plus"
                 } else {
+                    // Si la réponse contient de nouvelles photos
                     // Ajoutez la réponse (nouvelles photos) à la fin de la liste existante
                     $('.photoList').append(response);
 
-                    loading = false; // Marquez le chargement comme terminé
+                    // Marquez le chargement comme terminé en réinitialisant la variable "loading"
+                    loading = false;
                 }
             }
         });
@@ -116,14 +150,10 @@ jQuery(document).ready(function ($) {
 });
 
 
-// Transforme le style des filtres au clic 
 
 
-jQuery(document).ready(function ($) {
-    $('.selectFilter').click(function () {
-        $(this).toggleClass('active');
-    });
-});
+
+
 
 // affichage navigation detail photo survol
 
@@ -137,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const thumbnailImage = document.querySelector('.img-arrows');
 
     arrowLinks.forEach(arrowLink => {
-        // Lorsque le curseur entre dans la flèche
+        // Lorsque le curseur est sur les flèches
         arrowLink.addEventListener('mouseenter', function () {
             // Obtenez l'URL de l'image miniature à partir de l'attribut data-thumbnail
             const thumbnailUrl = this.getAttribute('data-thumbnail');
@@ -146,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Lorsque le curseur entre dans la flèche gauche
+    // Lorsque le curseur est sur la flèche gauche
     arrowLeft.addEventListener('mouseover', function () {
         // Afficher le conteneur de l'image miniature
         containerImgArrows.style.display = 'block';
@@ -171,6 +201,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+
+
+
+
 // changement de photos à la selection de filtres
 
 jQuery(document).ready(function ($) {
@@ -181,11 +217,11 @@ jQuery(document).ready(function ($) {
 
     // Transforme le style des filtres au clic
     $('.selectFilter').click(function () {
-        $(this).toggleClass('active'); // Lorsqu'un filtre est cliqué, cette ligne ajoute ou supprime la classe 'active'
+        $(this).toggleClass('active'); // Lorsqu'un filtre est cliqué, cette ligne ajoute la classe 'active'
     });
 
     // Gère le changement de sélection de catégorie
-    $('.selectCategory').change(function () {
+    $('.selectCategory').change(function () { // exécutée chaque fois que la valeur du menu déroulant change.
         selectedCategory = $(this).val(); // Met à jour la variable selectedCategory avec la valeur de la catégorie sélectionnée
         filterPhotos(); // Appelle la fonction pour filtrer les photos
     });
@@ -209,7 +245,7 @@ jQuery(document).ready(function ($) {
             url: ajaxurl, // URL vers le script WordPress qui traitera la requête
             type: 'post', // Méthode de la requête
             data: {
-                action: 'filter_photos', // Action à effectuer côté serveur
+                action: 'filter_photos', // Action à effectuer côté serveur dans le fichier fonction 
                 category: selectedCategory, // Catégorie sélectionnée
                 format: selectedFormat,     // Format sélectionné
                 date: selectedDate,         // Date sélectionnée
@@ -221,6 +257,11 @@ jQuery(document).ready(function ($) {
         });
     }
 });
+
+
+
+
+
 
 
 // gestion lightbox
@@ -246,11 +287,11 @@ document.addEventListener("DOMContentLoaded", function () {
         prevButton &&
         nextButton
     ) {
-        // Obtenir tous les conteneurs des posts(images) du catalogue
+        // stocke tous les images des posts du catalogue
         const allPostContainers = Array.from(
             document.querySelectorAll(".bloc-photo, .bloc-photo-detail")
         );
-        let currentImageIndex;
+        let currentImageIndex; // initialisation de la variable qui stocke l'index
 
         function openLightbox(element) {
             lightboxContainer.classList.add("open");
@@ -305,11 +346,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Ajouter un gestionnaire d'événement pour ouvrir la Lightbox lorsque l'utilisateur clique sur une icône d'image
         cataloguePhotosContainers.forEach((container) => {
             container.addEventListener("click", function (event) {
-                if (event.target.closest(".iconFullscreen")) {
+                if (event.target.closest(".iconFullscreen")) { //  vérifie si un événement a été déclenché au clic sur l'icone fullscreen
                     event.preventDefault();
-                    // Récupérer le conteneur de l'image correspondant à l'icône cliquée
+                    // stocke les photos contenus dans l'une des classes spécifiéeset qui est l'ascendant le plus proche de l'élément
                     const postContainer = event.target.closest(".bloc-photo, .bloc-photo-detail");
-                    console.log("Clic détecté sur l'icône fullscreen");
                     // Afficher l'image dans la Lightbox
                     openLightbox(postContainer);
                 }
@@ -326,3 +366,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+

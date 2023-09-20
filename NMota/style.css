@@ -54,7 +54,7 @@ body {
 }
 
 /*Responsive pour les tablettes*/
-@media (max-width: 1024px) {
+@media screen and (min-width: 466px) and (max-width: 1280px) {
   .header ul li a {
     color: white;
     font-size: 54px;
@@ -146,7 +146,7 @@ body {
   }
 }
 /*Responsive pour les mobiles*/
-@media (max-width: 600px) {
+@media screen and (max-width: 465px) {
   .header ul li a {
     color: white;
     font-size: 44px;
@@ -203,7 +203,6 @@ body {
 }
 
 /*Responsive pour les tablettes*/
-/*Responsive pour les tablettes & mobiles*/
 @media (max-width: 1024px) {
   .menu-footer {
     width: 100%;
@@ -268,9 +267,28 @@ body {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
 }
+@media screen and (max-width: 465px) {
+  .modaleOverlay .modaleContact {
+    width: 286px !important;
+    height: 595px !important;
+  }
+}
 .modaleOverlay .headerContact {
   margin-top: 10px;
   width: 100%;
+}
+@media screen and (max-width: 465px) {
+  .modaleOverlay .headerContact {
+    margin-top: 10px;
+    width: 100%;
+    height: 10%;
+    margin-bottom: -50px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .modaleOverlay .headerContact img {
+    margin-left: 0px !important;
+  }
 }
 
 /* Styles pour le formulaire */
@@ -282,11 +300,31 @@ body {
   justify-content: center;
   width: 100%;
 }
+@media screen and (max-width: 465px) {
+  .formulaireContact {
+    margin-top: 45px;
+  }
+}
 .formulaireContact label {
   font-family: "poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 5px;
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact label {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact .wpcf7-form-control-wrap {
+    position: static;
+  }
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact p {
+    margin-top: 5px !important;
+  }
 }
 .formulaireContact input {
   height: 40px;
@@ -295,6 +333,13 @@ body {
   border: solid #B8BBC2 1px;
   margin-top: 0px;
   padding-left: 10px;
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact input {
+    height: 40px;
+    width: 190px;
+    margin-bottom: -5px;
+  }
 }
 .formulaireContact input[type=submit] {
   height: 50px;
@@ -309,6 +354,13 @@ body {
   margin-bottom: 0px;
   font-size: 14px;
 }
+@media screen and (max-width: 465px) {
+  .formulaireContact input[type=submit] {
+    height: 50px;
+    width: 190px;
+    margin-top: -29px;
+  }
+}
 .formulaireContact input[type=submit]:hover {
   background-color: #cacaca;
 }
@@ -317,6 +369,19 @@ body {
   width: 263px;
   border-radius: 8px;
   border: solid #B8BBC2 1px;
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact textarea {
+    height: 130px;
+    width: 190px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .formulaireContact textarea.wpcf7-not-valid + .wpcf7-not-valid-tip {
+    margin-top: -26px;
+    margin-bottom: 8px;
+  }
 }
 
 /* message validation et erreur formulaire */
@@ -328,6 +393,13 @@ body {
   margin-top: -25px;
   text-align: center;
 }
+@media screen and (max-width: 465px) {
+  .wpcf7 form .wpcf7-response-output {
+    margin-top: -42px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
 
 .wpcf7-not-valid-tip {
   color: #dc3232;
@@ -337,64 +409,13 @@ body {
   display: block;
   margin-bottom: -20px;
 }
-
-/*Responsive pour les mobiles*/
-@media (max-width: 600px) {
-  .modaleContact {
-    width: 286px !important;
-    height: 595px !important;
-  }
-  .modaleContact .headerContact {
-    margin-top: 10px;
-    width: 100%;
-    height: 10%;
-    margin-bottom: -50px;
-  }
-  .modaleContact .headerContact img {
-    margin-left: 0px !important;
-  }
-  .formulaireContact {
-    margin-top: 45px;
-  }
-  .formulaireContact label {
-    font-size: 12px;
-  }
-  .formulaireContact .wpcf7-form-control-wrap {
-    position: static;
-  }
-  .formulaireContact p {
-    margin-top: 5px !important;
-  }
-  .formulaireContact input {
-    height: 40px;
-    width: 190px;
-    margin-bottom: -5px;
-  }
-  .formulaireContact input[type=submit] {
-    height: 50px;
-    width: 190px;
-    margin-top: -29px;
-  }
-  .formulaireContact textarea {
-    height: 130px;
-    width: 190px;
-    margin-bottom: 20px;
-  }
-  .formulaireContact textarea.wpcf7-not-valid + .wpcf7-not-valid-tip {
-    margin-top: -26px;
-    margin-bottom: 8px;
-  }
-  /* message validation et erreur formulaire */
-  .wpcf7 form .wpcf7-response-output {
-    margin-top: -42px;
-    font-size: 10px;
-    line-height: 12px;
-  }
+@media screen and (max-width: 465px) {
   .wpcf7-not-valid-tip {
     margin-top: 5px;
     margin-bottom: -23px;
   }
 }
+
 .containerPrincipalSingle {
   display: flex;
   flex-direction: column;
@@ -471,6 +492,7 @@ body {
 @media screen and (max-width: 465px) {
   .containerPrincipalSingle .containerSingle .detailsPhoto .infosPhoto {
     margin-top: 205px;
+    margin-left: 5px;
   }
 }
 .containerPrincipalSingle .containerSingle .detailsPhoto .infosPhoto p {
@@ -492,9 +514,9 @@ body {
 @media screen and (max-width: 465px) {
   .containerPrincipalSingle .containerSingle .bloc-photo-detail {
     position: absolute;
-    left: 58px;
+    left: 65px;
     width: 70%;
-    top: 100px;
+    top: 145px;
     height: 400px;
   }
 }
@@ -514,6 +536,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
+  margin-top: 3px;
 }
 .containerPrincipalSingle .containerSingle .bloc-photo-detail .hoverImg:hover {
   opacity: 1;
@@ -561,7 +584,7 @@ body {
 }
 @media screen and (max-width: 465px) {
   .contactBtn .containerContact p {
-    margin-right: -2px;
+    margin-right: -32px;
     font-size: 13px !important;
     word-spacing: -2px;
   }
@@ -574,8 +597,8 @@ body {
 }
 @media screen and (max-width: 465px) {
   .contactBtn .containerContact button {
-    width: 285px;
-    margin-left: 55px;
+    width: 245px;
+    margin-left: 60px;
   }
 }
 @media screen and (min-width: 466px) and (max-width: 1280px) {
@@ -652,8 +675,8 @@ body {
 }
 @media screen and (max-width: 465px) {
   .containerPrincipalImg .containerImg {
-    height: 295px;
-    width: 317px;
+    height: 334px;
+    width: 330px;
   }
 }
 @media screen and (min-width: 466px) and (max-width: 1280px) {
@@ -712,6 +735,18 @@ button a {
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 465px) {
+  .containerHero {
+    height: 253px;
+    margin-bottom: -60px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .containerHero {
+    height: 450px;
+    margin-bottom: -60px;
+  }
+}
 .containerHero .imgHero {
   -o-object-fit: cover;
      object-fit: cover;
@@ -730,6 +765,18 @@ button a {
   -webkit-text-stroke: 2px white;
   -webkit-text-fill-color: transparent;
 }
+@media screen and (max-width: 465px) {
+  .containerHero .titreHero {
+    font-size: 28px;
+    -webkit-text-stroke: 1px white;
+    z-index: 1;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .containerHero .titreHero {
+    font-size: 48px;
+  }
+}
 
 /* Filtres */
 .filter {
@@ -737,11 +784,32 @@ button a {
   margin-top: 100px;
   margin-bottom: -100px;
 }
+@media screen and (max-width: 465px) {
+  .filter {
+    margin-bottom: -110px;
+    margin-left: -190px;
+    overflow-x: auto;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .filter {
+    margin-bottom: -110px;
+    margin-left: -190px;
+    overflow-x: auto;
+  }
+}
 .filter .filterLeft {
   display: flex;
   width: 720px;
   margin-left: 217px;
   gap: 160px;
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .filter .filterLeft {
+    gap: 122px;
+    margin-right: -19px;
+    margin-left: 225px;
+  }
 }
 .filter .filterLeft .categoryFilter {
   width: 260px;
@@ -750,6 +818,16 @@ button a {
 .filter .filterLeft .formatFilter {
   width: 260px;
   height: 43px;
+}
+@media screen and (max-width: 465px) {
+  .filter .filterLeft .formatFilter {
+    margin-left: -140px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .filter .filterLeft .formatFilter {
+    margin-left: -140px;
+  }
 }
 .filter .selectFilter {
   width: 300px;
@@ -764,10 +842,15 @@ button a {
   appearance: none;
   outline: none;
 }
-.filter .selectFilter.active {
-  border-radius: 8px 8px 0 0;
-  border: 1px solid blue;
-  background-position: right 18px top;
+@media screen and (max-width: 465px) {
+  .filter .selectFilter {
+    width: 270px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .filter .selectFilter {
+    width: 215px;
+  }
 }
 .filter .selectCategory,
 .filter .selectFormat,
@@ -777,19 +860,19 @@ button a {
   font-size: 14px;
   text-transform: uppercase;
 }
-.filter .selectCategory select option:hover,
-.filter .selectFormat select option:hover,
-.filter .selectDate select option:hover {
-  background-color: red !important;
+@media screen and (max-width: 465px) {
+  .filter .selectCategory,
+  .filter .selectFormat,
+  .filter .selectDate {
+    font-size: 12px;
+  }
 }
-.filter .selectCategory .select-items div:hover,
-.filter .selectCategory .select-items div:focus,
-.filter .selectFormat .select-items div:hover,
-.filter .selectFormat .select-items div:focus,
-.filter .selectDate .select-items div:hover,
-.filter .selectDate .select-items div:focus {
-  background-color: red !important;
-  outline: none;
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .filter .selectCategory,
+  .filter .selectFormat,
+  .filter .selectDate {
+    font-size: 12px;
+  }
 }
 .filter .dateFilter {
   width: 300px;
@@ -817,6 +900,18 @@ button a {
   margin-bottom: 30px;
   position: relative;
 }
+@media screen and (max-width: 465px) {
+  .photoList .containerPhotoList {
+    width: 335px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  .photoList .containerPhotoList {
+    width: 335px;
+    height: 300px;
+  }
+}
 
 #loadMoreContainer {
   display: flex;
@@ -830,100 +925,19 @@ button a {
   background-color: #d8d8d8;
   margin: auto;
 }
+@media screen and (max-width: 465px) {
+  #loadMoreContainer #loadMoreButton {
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+}
+@media screen and (min-width: 466px) and (max-width: 1280px) {
+  #loadMoreContainer #loadMoreButton {
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+}
 
-/* Responsive tablette */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .containerHero {
-    height: 450px;
-    margin-bottom: -60px;
-  }
-  .containerHero .titreHero {
-    font-size: 48px;
-  }
-  .photoList .containerPhotoList {
-    width: 335px;
-    height: 300px;
-  }
-  #loadMoreContainer #loadMoreButton {
-    margin-top: -30px;
-    margin-bottom: -30px;
-  }
-  .filter {
-    margin-bottom: -110px;
-    margin-left: -190px;
-    overflow-x: auto;
-  }
-  .filter .filterLeft {
-    gap: 122px;
-    margin-right: -19px;
-    margin-left: 225px;
-  }
-  .filter .filterLeft .formatFilter {
-    margin-left: -140px;
-  }
-  .filter .selectFilter {
-    width: 215px;
-  }
-  .filter .selectCategory,
-  .filter .selectFormat,
-  .filter .selectDate {
-    font-size: 12px;
-  }
-  .filter .selectCategory option,
-  .filter .selectFormat option,
-  .filter .selectDate option {
-    font-size: 8px !important;
-    padding: 5px 2px 1px !important;
-    -webkit-appearance: none !important;
-       -moz-appearance: none !important;
-            appearance: none !important;
-  }
-}
-/* Responsive Mobile */
-@media (max-width: 600px) {
-  .containerHero {
-    height: 253px;
-    margin-bottom: -60px;
-  }
-  .containerHero .titreHero {
-    font-size: 28px;
-    -webkit-text-stroke: 1px white;
-    z-index: 1;
-  }
-  .photoList .containerPhotoList {
-    width: 335px;
-    height: 300px;
-  }
-  #loadMoreContainer #loadMoreButton {
-    margin-top: -30px;
-    margin-bottom: -30px;
-  }
-  .filter {
-    margin-bottom: -110px;
-    margin-left: -190px;
-    overflow-x: auto;
-  }
-  .filter .filterLeft .formatFilter {
-    margin-left: -140px;
-  }
-  .filter .selectFilter {
-    width: 270px;
-  }
-  .filter .selectCategory,
-  .filter .selectFormat,
-  .filter .selectDate {
-    font-size: 12px;
-  }
-  .filter .selectCategory option,
-  .filter .selectFormat option,
-  .filter .selectDate option {
-    font-size: 8px !important;
-    padding: 5px 2px 1px !important;
-    -webkit-appearance: none !important;
-       -moz-appearance: none !important;
-            appearance: none !important;
-  }
-}
 .bloc-photo {
   width: 720px;
   height: 655px;

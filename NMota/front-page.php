@@ -17,7 +17,7 @@
         'orderby' => 'rand',
     );
 
-    // Récupération de la liste d'images avec get_posts
+    // Récupération et stockage de la liste d'images avec get_posts
     $images = get_posts($args);
 
     // La boucle parcourt les images du tableau en récupérant l'url grâce à wp_get_attachment_image_url et le texte alternatif grâce à get_post_meta
@@ -35,56 +35,65 @@
 
     <section class="filter">
 
-    <div class="filterLeft">    
+    <div class="filterLeft">
+
         <div class="categoryFilter">
             <select name="categorie" class="selectFilter selectCategory">
-            <?php 
-            $categorie_taxonomie = get_terms( array(
-                'taxonomy' => 'categorie',
-                'hide_empty' => true,
-                'orderby' => 'name',
-                'order' => 'DESC', 
-            ) );
 
+                <?php 
+                // Récupère les termes de la taxonomie "categorie"
+                $categorie_taxonomie = get_terms( array(
+                    'taxonomy' => 'categorie',
+                    'hide_empty' => true,
+                    'orderby' => 'name',
+                    'order' => 'DESC',
+                ) );
+
+                // Option par défaut pour la catégorie
                 echo '<option value="" class="defaultOption">CATÉGORIES</option>';
-                foreach ($categorie_taxonomie as $iteration_categorie) {
-                    echo '<option class="decorated" value="'.$iteration_categorie->name.'"> ' .  $iteration_categorie->name  . '</option>';
-                }
 
-            
-            ?>
+                // Parcours des catégories et création des options
+                foreach ($categorie_taxonomie as $iteration_categorie) {
+                    echo '<option value="'.$iteration_categorie->name.'"> ' .  $iteration_categorie->name  . '</option>';
+                }
+                ?>
+
             </select>
         </div>
 
-
-
-        <div class="formatFilter"> 
+        <div class="formatFilter">
             <select name="format" class="selectFilter selectFormat">
-            <?php 
+
+                <?php 
+                // Récupère les termes (formats) de la taxonomie "format"
                 $format_taxonomie = get_terms( array(
                     'taxonomy' => 'format',
                     'hide_empty' => true,
-
                 ) );
-                
-                    echo '<option value="" class="defaultOption">FORMATS</option>';
-                    foreach ($format_taxonomie as $iteration_format) {
-                        echo '<option class="decorated" value="'.$iteration_format->name.'"> ' . $iteration_format->name . '</option>';
-                    }
 
-            ?>
+                echo '<option value="" class="defaultOption">FORMATS</option>';
+
+                // Parcours des formats et création des options
+                foreach ($format_taxonomie as $iteration_format) {
+                    echo '<option value="'.$iteration_format->name.'"> ' . $iteration_format->name . '</option>';
+                }
+                ?>
+
             </select>
         </div>
     </div>
-        <div class="dateFilter">
 
-            <select name="annee" class="selectFilter selectDate">
-                <option value="" class="defaultOption">trier par</option>
-                <option class="decorated" value="old">Les plus anciennes</option>
-                <option class="decorated" value="new">Les plus récentes</option>
-            </select>
-        </div>
-    </section>
+    <div class="dateFilter">
+        <select name="annee" class="selectFilter selectDate">
+
+            <option value="" class="defaultOption">trier par</option>
+            <option value="old">Les plus anciennes</option>
+            <option value="new">Les plus récentes</option>
+
+        </select>
+    </div>
+</section>
+
 
 
     <!-- Création de la liste des photos -->
@@ -92,6 +101,7 @@
 
 <div class="photoList">
     <?php
+    // tableau associatif contenant les paramètres pour personnaliser la requête
     $args = array(
         'post_type' => 'photo',
         'posts_per_page' => 12,
@@ -99,20 +109,24 @@
         'order' => 'ASC', 
     );
 
+    // effectue la requête à la base de données en utilisant les paramètres définis
     $photo_query = new WP_Query($args);
 
+    // vérifie si la requête a renvoyé des résultats
     if ($photo_query->have_posts()) :
+
+        // cette boucle parcourt chaque photo récupérée par la requête et configure les données de la photo actuelle pour qu'elles soient disponibles 
         while ($photo_query->have_posts()) : $photo_query->the_post();
     ?>    
         <div class="containerPhotoList" id="galleryPhoto">
            <?php get_template_part('template-parts/blocPhoto'); ?>
         </div>
     <?php
-        endwhile;
-        wp_reset_postdata();
+        endwhile; //  fin de la boucle
+        wp_reset_postdata(); //réinitialise les données de la publication (post data) à leur état d'origine
     else :
         echo 'Aucune photo trouvée.';
-    endif;
+    endif; //  fin de la condition
     ?>
 </div>
 
