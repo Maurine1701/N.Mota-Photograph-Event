@@ -10,9 +10,6 @@
     <!-- Définit le titre de la page en utilisant la fonction wp_title() -->
     <title><?php wp_title(); ?></title>
     
-    <!-- Inclut la bibliothèque jQuery depuis le CDN de Google -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
     <!-- Définit la variable JavaScript ajaxurl pour les requêtes AJAX en récupérant l'endpoint AJAX de WordPress-->
     <script>
     let ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
