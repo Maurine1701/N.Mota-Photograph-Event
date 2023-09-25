@@ -85,7 +85,7 @@ add_action('init', 'create_photo_post_type');
 // Fonction pour générer l'URL de l'endpoint AJAX
 function custom_ajaxurl() {
     echo '<script>';
-    echo 'var ajaxurl = "' . admin_url('admin-ajax.php') . '";';
+    echo 'const ajaxurl = "' . admin_url('admin-ajax.php') . '";';
     echo '</script>';
 }
 add_action('wp_head', 'custom_ajaxurl');
