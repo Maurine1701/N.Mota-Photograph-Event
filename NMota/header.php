@@ -10,11 +10,6 @@
     <!-- Définit le titre de la page en utilisant la fonction wp_title() -->
     <title><?php wp_title(); ?></title>
     
-    <!-- Définit la variable JavaScript ajaxurl pour les requêtes AJAX en récupérant l'endpoint AJAX de WordPress-->
-    <script>
-    let ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
-    </script>
-    
     <!-- Inclut les scripts et les stylesheets WordPress (nécessaire pour les fonctionnalités WordPress) -->
     <?php wp_head(); ?>
 </head>

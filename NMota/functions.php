@@ -1,5 +1,5 @@
 <?php
-
+//Chargements fichier et icones
 
 // charge le fichier style.css
 
@@ -8,29 +8,6 @@ function styleCSS_script() {
     
 }
 add_action( 'wp_enqueue_scripts', 'styleCSS_script' );
-
-
-
-
-// Enregistre les emplacements de menu avec leurs noms respectifs
-
-function NMota_menus() {
-    register_nav_menus( array(
-        'header' => 'Menu principal',
-        'footer' => 'Menu pied de page',
-    ) );
-}
-add_action( 'init', 'NMota_menus' );
-
-
-
-
-// active la prise en charge des images mises en avant
-
-function mytheme_post_thumbnails() {
-    add_theme_support( 'post-thumbnails' );
-}
-add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
 
 
 
@@ -57,7 +34,31 @@ add_action('wp_enqueue_scripts', 'Fontawesome');
 
 
 
-// enregistre un nouveau type de publication personnalisé
+
+// Enregistre les emplacements de menu avec leurs noms respectifs
+
+function NMota_menus() {
+    register_nav_menus( array(
+        'header' => 'Menu principal',
+        'footer' => 'Menu pied de page',
+    ) );
+}
+add_action( 'init', 'NMota_menus' );
+
+
+
+
+// active la prise en charge des images mises en avant pour miniature de navigation
+
+function mytheme_post_thumbnails() {
+    add_theme_support( 'post-thumbnails' );
+}
+add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
+
+
+
+
+// enregistre un nouveau type de publication personnalisé custom post type
 
 function create_photo_post_type() {
     register_post_type('photo', array(
@@ -74,6 +75,21 @@ function create_photo_post_type() {
     ));
 }
 add_action('init', 'create_photo_post_type');
+
+
+
+
+
+//AJAX
+
+// Fonction pour générer l'URL de l'endpoint AJAX
+function custom_ajaxurl() {
+    echo '<script>';
+    echo 'var ajaxurl = "' . admin_url('admin-ajax.php') . '";';
+    echo '</script>';
+}
+add_action('wp_head', 'custom_ajaxurl');
+
 
 
 
