@@ -13,6 +13,10 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
 
+    @media screen and (max-width: 465px) {
+        height: 100%;
+    }
+
     &.open {
         opacity: 1;
         pointer-events: auto;
@@ -36,7 +40,9 @@
             height: 100%;
 
             @media screen and (max-width: 465px) {
-                width: 100%;
+                width: 65%;
+                margin-left: -305px !important;
+                margin-top: -700px;
             }
 
             @media screen and (min-width: 466px) and (max-width: 1280px) {
@@ -53,8 +59,8 @@
             left: 230px;
 
             @media screen and (max-width: 465px) {
-                margin-bottom: 165px;
-                margin-left: -57px;
+                margin-bottom: 675px;
+                margin-left: -80px;
             }
 
             @media screen and (min-width: 466px) and (max-width: 1280px) {
@@ -72,8 +78,8 @@
             right: 230px;
 
             @media screen and (max-width: 465px) {
-                margin-left: -317px;
-                margin-bottom: 165px;
+                margin-left: -360px;
+                margin-bottom: 675px;
             }
 
             @media screen and (min-width: 465px) and (max-width: 1280px) {
@@ -96,8 +102,8 @@
 
         &.close {
 
-            top: 0;
-            right: 1em;
+            top: -75px;
+            right: 250px;
         }
 
         &.previous {
@@ -107,6 +113,11 @@
 
             @media screen and (min-width: 465px) and (max-width: 1280px) {
                 left: -50px;
+            }
+
+            @media screen and (max-width: 465px) {
+                left: -40px;
+                top: 565px;
             }
         }
 
@@ -118,6 +129,12 @@
             @media screen and (min-width: 465px) and (max-width: 1280px) {
                 right: -50px;
             }
+
+            @media screen and (max-width: 465px) {
+                left: 265px;
+                top: 565px;
+            }
+
         }
 
         &.next,
@@ -126,11 +143,15 @@
                 @media screen and (min-width: 465px) and (max-width: 1280px) {
                     display: none;
                 }
+
+                @media screen and (max-width: 465px) {
+                    display: none;
+                    bottom: 10;
+
+                }
+
             }
 
-            @media screen and (max-width: 465px) {
-                bottom: 0;
-            }
         }
     }
 

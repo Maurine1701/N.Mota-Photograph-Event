@@ -29,8 +29,10 @@
         box-sizing: border-box;
 
         @media screen and (max-width: 465px) {
-            width: 286px !important;
+            width: 305px !important;
             height: 595px !important;
+            top: 40%;
+            left: 38%;
         }
 
     }
@@ -68,6 +70,7 @@
 
     @media screen and (max-width: 465px) {
         margin-top: 45px;
+        margin-left: -85px
     }
 
     label {
@@ -84,14 +87,15 @@
     .wpcf7-form-control-wrap {
 
         @media screen and (max-width: 465px) {
-            position: static;
+            position: absolute !important;
+            margin-left: -364px !important;
         }
     }
 
     p {
 
         @media screen and (max-width: 465px) {
-            margin-top: 5px !important;
+            margin-top: 30px !important;
         }
     }
 
@@ -127,7 +131,8 @@
         @media screen and (max-width: 465px) {
             height: 50px;
             width: 190px;
-            margin-top: -29px;
+            margin-top: 80px;
+            margin-left: 160px;
         }
 
     }
@@ -145,8 +150,10 @@
 
         @media screen and (max-width: 465px) {
             height: 130px;
-            width: 190px;
-            margin-bottom: 20px;
+            width: 198px;
+            margin-left: 8px;
+            margin-bottom: -85px;
+            margin-top: -227px;
         }
 
         &.wpcf7-not-valid+.wpcf7-not-valid-tip {
@@ -158,6 +165,11 @@
         }
 
     }
+
+    .wpcf7 input[type="email"] {
+        margin-left: -83px !important;
+    }
+
 }
 
 

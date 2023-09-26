@@ -41,11 +41,12 @@
         @media screen and (max-width: 465px) {
             font-size: 28px;
             -webkit-text-stroke: 1px white;
-            z-index: 1;
+            z-index: -1 !important;
         }
 
         @media screen and (min-width: 466px) and (max-width: 1280px) {
             font-size: 48px;
+            z-index: -1;
         }
 
     }
@@ -120,7 +121,7 @@
         outline: none;
 
         @media screen and (max-width: 465px) {
-            width: 270px;
+            width: 250px;
         }
 
         @media screen and (min-width: 466px) and (max-width: 1280px) {
