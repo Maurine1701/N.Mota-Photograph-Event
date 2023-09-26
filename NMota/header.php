@@ -30,6 +30,6 @@
         ?>
     </nav>
     <div class="burgerBtn">
-        <span></span>
+        <span class="lineBurger"></span>
     </div>
 </header>

@@ -71,7 +71,7 @@ body {
   .burgerBtn {
     cursor: pointer;
   }
-  .burgerBtn span {
+  .burgerBtn span.lineBurger {
     width: 35px;
     height: 2px;
     background-color: #000;
@@ -81,7 +81,7 @@ body {
     transform: translateY(-50%);
     transition: background-color 0.5s ease-in-out;
   }
-  .burgerBtn span::before, .burgerBtn span::after {
+  .burgerBtn span.lineBurger::before, .burgerBtn span.lineBurger::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -89,19 +89,19 @@ body {
     background-color: #000;
     transition: transform 0.5s ease-in-out;
   }
-  .burgerBtn span::before {
+  .burgerBtn span.lineBurger::before {
     transform: translateY(-10px);
   }
-  .burgerBtn span::after {
+  .burgerBtn span.lineBurger::after {
     transform: translateY(10px);
   }
-  .burgerBtn.active span {
+  .burgerBtn.active span.lineburger {
     background-color: transparent !important;
   }
-  .burgerBtn.active span::before {
+  .burgerBtn.active span.lineburger::before {
     transform: translateY(0px) rotateZ(45deg);
   }
-  .burgerBtn.active span::after {
+  .burgerBtn.active span.lineburger::after {
     transform: translateY(0px) rotateZ(-45deg);
   }
   nav.navigation {
@@ -118,9 +118,9 @@ body {
     visibility: visible;
     animation: menuFadein 1s ease-in-out;
     width: 100%;
-    height: 900px;
-    margin-top: 975px;
-    margin-left: -401px;
+    height: 1100px;
+    margin-top: 1177px;
+    margin-left: -402px;
     z-index: 1;
     background-color: #E00000;
   }
@@ -159,17 +159,17 @@ body {
     height: 9px;
     margin-left: -185px !important;
   }
-  span {
+  span.lineBurger {
     width: 35px;
     height: 2px;
     background-color: #000;
     display: block;
     position: absolute;
-    left: 320px !important;
+    left: 300px !important;
     transform: translateY(-50%);
     transition: background-color 0.5s ease-in-out;
   }
-  span::before, span::after {
+  span.lineBurger::before, span.lineBurger::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -177,21 +177,18 @@ body {
     background-color: #000;
     transition: transform 0.5s ease-in-out;
   }
-  span::before {
+  span.lineBurger::before {
     transform: translateY(-10px);
   }
-  span::after {
+  span.lineBurger::after {
     transform: translateY(10px);
   }
-  nav.navigation ul {
-    box-sizing: unset;
-  }
   nav.navigation.open {
-    margin-top: 780px !important;
+    margin-top: 839px !important;
     margin-left: -400px;
     background-color: #E00000 !important;
     z-index: 2;
-    height: 700px;
+    height: 760px;
     width: 600px;
   }
   @keyframes menuFadein {
@@ -212,7 +209,7 @@ body {
     line-height: 50px;
     width: 100%;
     font-size: 20px;
-    margin-left: 80px;
+    margin-left: 95px;
   }
 }
 .footer {
@@ -305,30 +302,9 @@ body {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
 }
-@media screen and (max-width: 465px) {
-  .modaleOverlay .modaleContact {
-    width: 305px !important;
-    height: 595px !important;
-    top: 40%;
-    left: 38%;
-  }
-}
 .modaleOverlay .headerContact {
   margin-top: 10px;
   width: 100%;
-}
-@media screen and (max-width: 465px) {
-  .modaleOverlay .headerContact {
-    margin-top: 10px;
-    width: 100%;
-    height: 10%;
-    margin-bottom: -50px;
-  }
-}
-@media screen and (max-width: 465px) {
-  .modaleOverlay .headerContact img {
-    margin-left: 0px !important;
-  }
 }
 
 /* Styles pour le formulaire */
@@ -340,32 +316,11 @@ body {
   justify-content: center;
   width: 100%;
 }
-@media screen and (max-width: 465px) {
-  .formulaireContact {
-    margin-top: 45px;
-    margin-left: -85px;
-  }
-}
 .formulaireContact label {
   font-family: "poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 5px;
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact label {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact .wpcf7-form-control-wrap {
-    position: static;
-  }
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact p {
-    margin-top: 30px !important;
-  }
 }
 .formulaireContact input {
   height: 40px;
@@ -374,13 +329,6 @@ body {
   border: solid #B8BBC2 1px;
   margin-top: 0px;
   padding-left: 10px;
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact input {
-    height: 40px;
-    width: 190px;
-    margin-bottom: -5px;
-  }
 }
 .formulaireContact input[type=submit] {
   height: 50px;
@@ -395,14 +343,6 @@ body {
   margin-bottom: 0px;
   font-size: 14px;
 }
-@media screen and (max-width: 465px) {
-  .formulaireContact input[type=submit] {
-    height: 50px;
-    width: 190px;
-    margin-top: 80px;
-    margin-left: 160px;
-  }
-}
 .formulaireContact input[type=submit]:hover {
   background-color: #cacaca;
 }
@@ -411,21 +351,6 @@ body {
   width: 263px;
   border-radius: 8px;
   border: solid #B8BBC2 1px;
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact textarea {
-    height: 130px;
-    width: 198px;
-    margin-left: 8px;
-    margin-bottom: -85px;
-    margin-top: -227px;
-  }
-}
-@media screen and (max-width: 465px) {
-  .formulaireContact textarea.wpcf7-not-valid + .wpcf7-not-valid-tip {
-    margin-top: -26px;
-    margin-bottom: 8px;
-  }
 }
 .formulaireContact .wpcf7 input[type=email] {
   margin-left: -83px !important;
@@ -440,13 +365,6 @@ body {
   margin-top: -25px;
   text-align: center;
 }
-@media screen and (max-width: 465px) {
-  .wpcf7 form .wpcf7-response-output {
-    margin-top: -42px;
-    font-size: 10px;
-    line-height: 12px;
-  }
-}
 
 .wpcf7-not-valid-tip {
   color: #dc3232;
@@ -456,13 +374,63 @@ body {
   display: block;
   margin-bottom: -20px;
 }
-@media screen and (max-width: 465px) {
+
+/*Responsive pour les mobiles*/
+@media (max-width: 465px) {
+  .modaleContact {
+    width: 286px !important;
+    height: 600px !important;
+    position: fixed !important;
+    left: 195px !important;
+    top: 435px !important;
+  }
+  .modaleContact .headerContact {
+    margin-top: 10px;
+    width: 100%;
+    height: 10%;
+    margin-bottom: -50px;
+  }
+  .modaleContact .headerContact img {
+    margin-left: 0px !important;
+  }
+  .formulaireContact {
+    margin-top: 45px;
+  }
+  .formulaireContact label {
+    font-size: 12px;
+  }
+  .formulaireContact .wpcf7-form-control-wrap {
+    position: static;
+  }
+  .formulaireContact p {
+    margin-top: 5px !important;
+  }
+  .formulaireContact input {
+    height: 40px;
+    width: 190px;
+    margin-bottom: -5px;
+  }
+  .formulaireContact input[type=submit] {
+    height: 50px;
+    width: 190px;
+    margin-top: -30px;
+  }
+  .formulaireContact textarea {
+    height: 130px;
+    width: 190px;
+    margin-bottom: 20px;
+  }
+  /* message validation et erreur formulaire */
+  .wpcf7 form .wpcf7-response-output {
+    margin-top: -40px;
+    font-size: 10px;
+    line-height: 12px;
+  }
   .wpcf7-not-valid-tip {
     margin-top: 5px;
-    margin-bottom: -23px;
+    margin-bottom: -25px;
   }
 }
-
 .containerPrincipalSingle {
   display: flex;
   flex-direction: column;
@@ -842,8 +810,7 @@ button a {
 @media screen and (min-width: 466px) and (max-width: 1280px) {
   .filter {
     margin-bottom: -110px;
-    margin-left: -190px;
-    overflow-x: auto;
+    margin-left: -165px;
   }
 }
 .filter .filterLeft {
