@@ -1105,14 +1105,14 @@ button a {
 }
 @media screen and (max-width: 465px) {
   .containerLightbox .fullscreenPhoto .reference {
-    margin-bottom: 675px;
-    margin-left: -80px;
+    margin-bottom: 670px;
+    margin-left: -290px;
   }
 }
 @media screen and (min-width: 466px) and (max-width: 1280px) {
   .containerLightbox .fullscreenPhoto .reference {
     left: 2px;
-    top: 600px;
+    top: 950px;
   }
 }
 .containerLightbox .fullscreenPhoto .categorie {
@@ -1131,7 +1131,7 @@ button a {
 @media screen and (min-width: 465px) and (max-width: 1280px) {
   .containerLightbox .fullscreenPhoto .categorie {
     right: 6px;
-    top: 600px;
+    top: 950px;
   }
 }
 .containerLightbox .close,
@@ -1148,6 +1148,14 @@ button a {
 .containerLightbox .next.close {
   top: -75px;
   right: 250px;
+}
+@media screen and (min-width: 465px) and (max-width: 1280px) {
+  .containerLightbox .close.close,
+  .containerLightbox .previous.close,
+  .containerLightbox .next.close {
+    top: -42px;
+    right: 13px;
+  }
 }
 .containerLightbox .close.previous,
 .containerLightbox .previous.previous,

@@ -59,13 +59,13 @@
             left: 230px;
 
             @media screen and (max-width: 465px) {
-                margin-bottom: 675px;
-                margin-left: -80px;
+                margin-bottom: 670px;
+                margin-left: -290px;
             }
 
             @media screen and (min-width: 466px) and (max-width: 1280px) {
                 left: 2px;
-                top: 600px;
+                top: 950px;
             }
 
         }
@@ -84,7 +84,7 @@
 
             @media screen and (min-width: 465px) and (max-width: 1280px) {
                 right: 6px;
-                top: 600px;
+                top: 950px;
             }
         }
 
@@ -104,6 +104,11 @@
 
             top: -75px;
             right: 250px;
+
+            @media screen and (min-width: 465px) and (max-width: 1280px) {
+                top: -42px;
+                right: 13px;
+            }
         }
 
         &.previous {
